@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby TailwindCSS Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter with TailwindCSS and common dev tools. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@kosvrouvas`,
+    title: `Segurat - Summa Insurance: Especialistas en seguros patrimoniales y agrarios en Almenara, Castellón y Valencia.`,
+    description: `En Summa Insurance - Segurat te ayudamos a encontrar las mejores pólizas de seguros en Almenara, Castellón y Valencia. Ahorra en tu seguro con asesoría personalizada y profesional por expertos en seguros patrimoniales y agrarios.`,
+    author: `Segurat - Summa Insurance`,
   },
   flags: {
     THE_FLAG: false
@@ -22,13 +22,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Segurat - Summa Insurance`,
+        short_name: `Segurat`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon-summa-seguros.gif`, 
       },
     },
     {
@@ -57,7 +57,7 @@ module.exports = {
         // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "example.com",
+        cookieDomain: "segurat-summa.es",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

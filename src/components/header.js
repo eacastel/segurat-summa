@@ -1,73 +1,77 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React, { useState } from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import { StaticImage } from "gatsby-plugin-image";
+import React, { useState } from "react";
+
+  // Style for the CTA button
+  const ctaButtonStyle = {
+    backgroundColor: '#b4be0f', // Normal background color
+    color: 'white', // Text color
+    padding: '0.5rem 1rem', // Padding
+    borderRadius: '0.375rem', // Tailwind's rounded-md equivalent
+    textDecoration: 'none', // Remove underline
+  };
+
+  // Style for the hover state
+  const ctaButtonHoverStyle = {
+    backgroundColor: '#074875', // Hover background color
+  };
+
 
 function Header({ siteTitle }) {
-  const [isExpanded, toggleExpansion] = useState(false)
+  const [isExpanded, toggleExpansion] = useState(false);
 
   return (
-    <nav className="flex flex-wrap items-center justify-between p-6 mb-6 bg-gray-800">
-      <div className="flex items-center flex-shrink-0 mr-6 text-white">
-        <span className="text-xl font-semibold tracking-tight">
-          {siteTitle}
-        </span>
+    <nav className="bg-white relative">
+      {/* Logo with Left Alignment */}
+      <div className="absolute left-0 top-10 md:top-6 z-10 px-6 py-2 m:py-0">
+        <StaticImage
+          src="../images/segurat-summa.png"
+          alt="Segurat Summa Logo"
+          className="w-56 md:w-72"
+        />
       </div>
-      <div className="block lg:hidden">
-        <button
-          onClick={() => toggleExpansion(!isExpanded)}
-          className="flex items-center px-3 py-2 text-white border border-white rounded hover:text-white hover:border-white"
-        >
-          <svg
-            className="w-3 h-3 fill-current"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+
+      {/* Navigation Bar */}
+      <div className="pt-16 md:pt-20">
+        <div className="flex justify-end items-center px-6 py-4 bg-gray-200 rounded-lg">
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => toggleExpansion(!isExpanded)}
+            className="px-3 py-2 border border-gray-200 rounded text-gray-200 border-gray-700 hover:text-white hover:border-white md:hidden"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div
-        className={`${
-          isExpanded ? `block` : `hidden`
-        } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-      >
-        <div className="text-sm lg:flex-grow">
-          <Link
-            to={`/`}
-            href="#responsive-header"
-            className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-white"
-          >
-            Home
-          </Link>
-          <Link
-            to={`/page-2`}
-            className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-white"
-          >
-            page 2
-          </Link>
+            <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M0 3h24v2H0V3zm0 6h24v2H0V9zm0 6h24v2H0v-2z" />
+            </svg>
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex justify-end items-center px-6 py-2 bg-gray-200">
+        <div className="flex-grow flex justify-center items-center space-x-4">
+          <Link to="/seguros-patrimoniales" className="text-gray-700 hover:text-gray-500 align-middle">SEGUROS PATRIMONIALES</Link>
+          <Link to="/agroseguros" className="text-gray-700 hover:text-gray-500 align-middle pr-8 pd:mr-8 lg:pr-8">AGROSEGUROS</Link>
         </div>
-        <div>
-          <a
-            href="https://github.com/kosvrouvas/gatsby-tailwindcss-starter"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
-          >
-            Download
-          </a>
+        <Link to="/contacto" style={ctaButtonStyle} className="hover:no-underline" onMouseEnter={(e) => e.currentTarget.style.backgroundColor = ctaButtonHoverStyle.backgroundColor} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = ctaButtonStyle.backgroundColor}>CONTACTO</Link>
+      </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`${isExpanded ? "block" : "hidden"} bg-gray-200 px-6 pt-4 pb-2 md:hidden`}>
+          <Link to="/seguros-patrimoniales" className="block text-gray-700 hover:text-gray-500 py-1">SEGUROS PATRIMONIALES</Link>
+          <Link to="/agroseguros" className="block text-gray-700 hover:text-gray-500 py-1 ">AGROSEGUROS</Link>
+          <Link to="/contacto" className="block text-gray-700 hover:text-gray-500 py-1">CONTACTO</Link>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: "",
+};
 
-export default Header
+export default Header;
