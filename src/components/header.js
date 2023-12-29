@@ -34,7 +34,7 @@ function Header({ siteTitle }) {
 
       {/* Navigation Bar */}
       <div className="pt-16 md:pt-20">
-        <div className="flex justify-end items-center px-6 py-4 bg-gray-200 rounded-lg">
+        <div className="flex justify-end items-center px-6 py-4 bg-gray-200 rounded-t-lg">
           {/* Hamburger Menu Button */}
           <button
             onClick={() => toggleExpansion(!isExpanded)}

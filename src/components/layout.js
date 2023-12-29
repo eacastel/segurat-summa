@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import LayoutWrapper from "./layoutWrapper";
+import Footer from "./footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,10 +25,7 @@ const Layout = ({ children }) => {
       </LayoutWrapper>
       <LayoutWrapper>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Todos los derechos reservados Jesus Gomis, SL.
-          {` `}
-        </footer>
+     <Footer />
       </LayoutWrapper>
     </>
   );
