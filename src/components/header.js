@@ -24,7 +24,7 @@ function Header({ siteTitle }) {
   return (
     <nav className="bg-white relative">
       {/* Logo with Left Alignment */}
-      <div className="absolute left-0 top-10 md:top-6 z-10 px-6 py-2 m:py-0">
+      <div className="absolute left-0 top-0 md:top-0 z-10 px-6 py-2 m:py-0">
         <StaticImage
           src="../images/segurat-logo-002.png"
           alt="Segurat Summa Logo"
@@ -48,18 +48,20 @@ function Header({ siteTitle }) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex justify-end items-center px-6 py-2 bg-gray-200">
         <div className="flex-grow flex justify-center items-center space-x-4">
-          <Link to="/seguros-patrimoniales" className="text-gray-700 hover:text-gray-500 align-middle">SEGUROS PERSONALES</Link>
-          <Link to="/agroseguros" className="text-gray-700 hover:text-gray-500 align-middle pr-8 pd:mr-8 lg:pr-8">AGROSEGUROS</Link>
+          <Link to="#seguros-patrimoniales" className="text-gray-700 hover:text-gray-500 align-middle">SEGUROS PERSONALES</Link>
+          <Link to="#seguros-empresariales" className="text-gray-700 hover:text-gray-500 align-middle">SEGUROS EMPRESARIALES</Link>
+          <Link to="#agroseguros" className="text-gray-700 hover:text-gray-500 align-middle pr-8 pd:mr-8 lg:pr-8">AGROSEGUROS</Link>
         </div>
-        <Link to="/contacto" style={ctaButtonStyle} className="hover:no-underline" onMouseEnter={(e) => e.currentTarget.style.backgroundColor = ctaButtonHoverStyle.backgroundColor} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = ctaButtonStyle.backgroundColor}>CONTACTO</Link>
+        <Link to="#contacto" style={ctaButtonStyle} className="hover:no-underline" onMouseEnter={(e) => e.currentTarget.style.backgroundColor = ctaButtonHoverStyle.backgroundColor} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = ctaButtonStyle.backgroundColor}>CONTACTO</Link>
       </div>
         </div>
 
         {/* Mobile Navigation */}
         <div className={`${isExpanded ? "block" : "hidden"} bg-gray-200 px-6 pt-4 pb-2 md:hidden`}>
-          <Link to="/seguros-patrimoniales" className="block text-gray-700 hover:text-gray-500 py-1">SEGUROS PERSONALES</Link>
-          <Link to="/agroseguros" className="block text-gray-700 hover:text-gray-500 py-1 ">AGROSEGUROS</Link>
-          <Link to="/contacto" className="block text-gray-700 hover:text-gray-500 py-1">CONTACTO</Link>
+          <Link to="#seguros-patrimoniales" className="block text-gray-700 hover:text-gray-500 py-1">SEGUROS PERSONALES</Link>
+          <Link to="#seguros-empresariales" className="text-gray-700 hover:text-gray-500 align-middle">SEGUROS EMPRESARIALES</Link>
+          <Link to="#agroseguros" className="block text-gray-700 hover:text-gray-500 py-1 ">AGROSEGUROS</Link>
+          <Link to="#contacto" className="block text-gray-700 hover:text-gray-500 py-1">CONTACTO</Link>
         </div>
       </div>
     </nav>

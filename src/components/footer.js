@@ -10,14 +10,14 @@ const Footer = () => {
         <h3 className="text-xl font-bold mb-2">Segurat - Summa Insurance</h3>
           <p>Plaça d'Ausiàs March, 5, Bajo, 12590 Almenara, Castellón</p>
           <p>
-            <a href="tel:+32621160190" className="text-blue-300 hover:text-blue-500">
+            <a href="tel:+32621160190" className="text-blue-700 no-underline font-bold underline-no hover:text-blue-500">
               Tel. +32 621160190
             </a>
           </p>
-          <p className="mt-4 mb-2 font-bold">Horas de apertura:</p>
-          <p>Lunes a Viernes: 8:30 AM–2 PM, 5–7:30 PM</p>
-          <p>Sabado: 10 AM–12 PM</p>
-          <p>Domingo: Closed</p>
+          <p className="mt-4 mb-2 font-bold">Horario de apertura:</p>
+          <p>Lunes a Viernes: 8:30–14:00, 17:00–19:30 PM</p>
+          <p>Sabado: 10:00–12:00 </p>
+          <p>Domingo: Cerrado</p>
         </div>
 
 

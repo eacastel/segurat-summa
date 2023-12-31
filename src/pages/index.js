@@ -11,44 +11,67 @@ const IndexPage = () => (
     <SEO title="Home" />
     <HeroSlider />
 
-    <div className="container mx-auto px-4">
-      <h1 className="text-xxl font-semibold my-3 py-4">
-        Segurat - Summa Insurance: Correduria de Seguros
-      </h1>
-      <h2>
-        Somos especialistas en seguros particulares, empresariales y agrarios en
-        Almenara, Castellón y Valencia.
-      </h2>
+    <div className="container mx-auto px-2">
+      <div class="bg-opacity-70 w-full text-center p-2 md:my-2">
+        <h1 className="text-2xl md:text-3xl font-bold uppercase ">
+          Seguros particulares, empresariales y agrarios en Almenara, Castellón
+          y Valencia.
+        </h1>
+      </div>
       {/* Image and Text Wrapper */}
 
-      <h3 className="text-lg font-semibold my-2">
-        Ofrecemos comparativas de seguros y asesoramiento personalizado
-      </h3>
-      <p className="my-4">
-        En Segurat - Summa Insurance te ayudamos a encontrar las mejores pólizas
-        de seguros en Almenara, Castellón y Valencia. Ahorra en tu seguro con
-        asesoría personalizada y profesional por expertos en seguros
-        particulares, personales, empresariales, patrimoniales y agrarios.
-      </p>
-      <p className="my-4">
-        Somos corredores de seguros especializados en ofrecer un asesoramiento
-        personalizado y profesional. Contamos con una amplia experiencia en el
-        sector, trabajamos con las compañías líderes del mercado y te ofrecemos
-        una amplia gama de seguros para auto, hogar, vida, salud, decesos,
-        comerciales, agrarios y más. También tramitamos tus siniestros y
-        gestionamos tu seguro contratado.
-      </p>
-
-      <div className="md:flex md:items-center md:space-x-4">
-        <div className="flex justify-center md:w-1/3">
-          <StaticImage
-            src="../images/almenara-pueblo-cropped.jpeg"
-            alt="Seguros Patrimoniales"
-            className="rounded-lg shadow-md w-full md:max-w-xs lg:max-w-sm"
-          />
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:mt-0">
+        {/* Main Content (2/3 of the page on wide screens) */}
+        <div className="md:col-span-3">
+          <h3 className="text-lg font-semibold my-2 md:pt-6">
+            Ofrecemos comparativas de seguros y asesoramiento personalizado
+          </h3>
+          <p className="my-4">
+            En Segurat - Summa Insurance te ayudamos a encontrar las mejores
+            pólizas de seguros en Almenara, Castellón y Valencia. Ahorra en tu
+            seguro con asesoría personalizada y profesional por expertos en
+            seguros particulares, personales, empresariales, patrimoniales y
+            agrarios.
+          </p>
+          <p className="my-4">
+            Somos corredores de seguros especializados en ofrecer un
+            asesoramiento personalizado y profesional. Contamos con una amplia
+            experiencia en el sector, trabajamos con las compañías líderes del
+            mercado y te ofrecemos una amplia gama de seguros para auto, hogar,
+            vida, salud, decesos, comerciales, agrarios y más. También
+            tramitamos tus siniestros y gestionamos tu seguro contratado.
+          </p>
         </div>
-        <div className="md:w-2/3">
-          <h3>Nuestros servicios incluyen: </h3>
+
+        {/* Checkmark Items (1/3 of the page on wide screens) */}
+        <div className="md:col-span-2 flex flex-col">
+          {["SEGUROS PERSONALES", "SEGUROS EMPRESARIALES", "AGROSEGUROS"].map(
+            (item, index) => (
+              <div key={index} className="flex items-center my-4">
+                <StaticImage
+                  src="../images/check-box-segurat.png"
+                  alt="checkmark"
+                  className="w-20 h-20 mr-4 " // Added h-12 and object-cover
+                />
+                <div className="text-xl font-semibold">{item}</div>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+
+      <div className="md:flex md:items-center md:space-x-4 mt-16">
+        <div className="flex justify-center md:w-1/3">
+        <StaticImage
+      src="../images/almenara-pueblo-cropped.jpeg"
+      alt="Seguros Patrimoniales"
+      className="rounded-lg shadow-md w-full h-64 md:h-auto md:max-w-xs lg:max-w-sm object-cover"
+    />
+        </div>
+        <div className="md:w-2/3 mt-8 md:mt-0 pl-6">
+          <h3 className="text-xl font-semibold m-2 uppercase">
+            Nuestros servicios incluyen:{" "}
+          </h3>
           <ul>
             <li>Comparativa de seguros de diferentes compañías; </li>
             <li>
@@ -70,7 +93,7 @@ const IndexPage = () => (
 
       {/* Seguros Particulares */}
 
-      <div className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg text-left border border-gray-500 p-6 my-4">
+      <div id="seguros-patrimoniales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg text-left border border-gray-500 p-6 my-4 mt-20">
         <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 class="text-xl font-semibold m-2 uppercase">
             Seguros Particulares y Personales
@@ -78,7 +101,8 @@ const IndexPage = () => (
         </div>
 
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
-          Soluciones para la proteccion del patrimonio:</h3>
+          Soluciones para la proteccion del patrimonio:
+        </h3>
         <ul className="list-disc pl-5">
           <li>
             <strong>Seguros de autos:</strong> seguros de coche, seguros de
@@ -97,7 +121,8 @@ const IndexPage = () => (
         </ul>
 
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
-          Soluciones para la proteccion personal:</h3>
+          Soluciones para la proteccion personal:
+        </h3>
         <ul className="list-disc pl-5">
           <li>
             <strong>Seguros de salud:</strong> asistencia sanitaria, reembolso,
@@ -112,7 +137,8 @@ const IndexPage = () => (
         </ul>
 
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
-          Soluciones para viajes y ocio:</h3>
+          Soluciones para viajes y ocio:
+        </h3>
         <ul className="list-disc pl-5">
           <li>
             <strong>Seguros de viaje y ocio:</strong> responsabilidad civil del
@@ -122,7 +148,8 @@ const IndexPage = () => (
         </ul>
 
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
-          Soluciones aseguradoras adicionales</h3>
+          Soluciones aseguradoras adicionales
+        </h3>
         <ul className="list-disc pl-5">
           <li>
             <strong>Responsabilidad civil general familiar</strong>
@@ -138,7 +165,7 @@ const IndexPage = () => (
 
       {/* Seguros de Empresas */}
 
-      <div class="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4">
+      <div id="seguros-empresariales" class="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
         <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 class="text-xl font-semibold m-2 uppercase">
             Seguros Para Empresas
@@ -146,7 +173,8 @@ const IndexPage = () => (
         </div>
 
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
-          Soluciones para la proteccion del patrimonio:</h3>
+          Soluciones para la proteccion del patrimonio:
+        </h3>
         <ul class="list-disc pl-5">
           <li>
             <strong>Seguro para industrias y servicios:</strong> seguro
@@ -190,7 +218,9 @@ const IndexPage = () => (
           <li>Seguro de protección de datos para empresas y autónomos</li>
         </ul>
 
-        <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">Soluciones para la proteccion de cuentas de resultados:</h3>
+        <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
+          Soluciones para la proteccion de cuentas de resultados:
+        </h3>
         <ul class="list-disc pl-5">
           <li>Seguros de credito</li>
           <li>
@@ -200,7 +230,9 @@ const IndexPage = () => (
           </li>
         </ul>
 
-        <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">Soluciones para la proteccion del personal de la empresa:</h3>
+        <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
+          Soluciones para la proteccion del personal de la empresa:
+        </h3>
         <ul class="list-disc pl-5">
           <li>Seguros de salud</li>
         </ul>
@@ -208,7 +240,7 @@ const IndexPage = () => (
 
       {/* Agroseguros */}
 
-      <div class="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4">
+      <div id="agroseguros" class="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
         <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 class="text-xl font-semibold m-2 uppercase">
             Seguros para el Campo | Agroseguros
