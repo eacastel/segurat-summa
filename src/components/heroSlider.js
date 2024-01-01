@@ -18,8 +18,8 @@ const HeroSlider = () => {
       <Slider {...settings}>
         {/* Slide 1 */}
         <div className="relative">
-          {/* For mobile: Apply aspect ratio */}
-          <div className="block md:hidden pb-[56.25%]">
+          {/* For mobile: aspect ratio */}
+          <div className="block md:hidden h-64">
             <StaticImage
               src="../images/castillo-almenara-hero-banner.jpg"
               alt="Seguros en Almenara y Castellon, Valencia"
@@ -27,7 +27,7 @@ const HeroSlider = () => {
               className="absolute top-0 left-0 w-full h-full object-cover rounded-b-lg"
             />
           </div>
-          {/* For larger screens: Use original aspect ratio */}
+          {/* For larger screens: original aspect ratio */}
           <div className="hidden md:block">
             <StaticImage
               src="../images/castillo-almenara-hero-banner.jpg"
@@ -52,8 +52,8 @@ const HeroSlider = () => {
         </div>
         {/* Slide 2 */}
         <div className="relative">
-          {/* For mobile: Apply aspect ratio */}
-          <div className="block md:hidden pb-[56.25%]">
+          {/* For mobile: aspect ratio */}
+          <div className="block md:hidden h-64">
             <StaticImage
               src="../images/naranjos-hero-banner.jpg"
               alt="Seguros del Campo, Agroseguros, Seguros Agrarios Almenara, Castellon, Valencia"
@@ -62,7 +62,7 @@ const HeroSlider = () => {
               className="absolute top-0 left-0 w-full h-full object-cover rounded-b-lg"
             />
           </div>
-          {/* For larger screens: Use original aspect ratio */}
+          {/* For larger screens: original aspect ratio */}
           <div className="hidden md:block">
             <StaticImage
               src="../images/naranjos-hero-banner.jpg"
@@ -80,13 +80,12 @@ const HeroSlider = () => {
                   Seguros Agrarios / Agroseguros
                 </h2>
                 <p className="text-md md:text-xl text-white">
-                  Somos especialistas en la contratación de los diferentes módulos existentes en las líneas de aseguramiento agrícola.
+                  Somos especialistas en la contratación de los módulos existentes en las líneas de aseguramiento agrícola.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        {/* Repeat for other slides */}
       </Slider>
     </div>
   )

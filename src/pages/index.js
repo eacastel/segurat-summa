@@ -12,7 +12,7 @@ const IndexPage = () => (
     <HeroSlider />
 
     <div className="container mx-auto px-2">
-      <div class="bg-opacity-70 w-full text-center p-2 md:my-2">
+      <div className="bg-opacity-70 w-full text-center p-2 md:my-2">
         <h1 className="text-2xl md:text-3xl font-bold uppercase ">
           Seguros particulares, empresariales y agrarios en Almenara, Castellón
           y Valencia.
@@ -94,8 +94,8 @@ const IndexPage = () => (
       {/* Seguros Particulares */}
 
       <div id="seguros-patrimoniales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg text-left border border-gray-500 p-6 my-4 mt-20">
-        <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
-          <h2 class="text-xl font-semibold m-2 uppercase">
+        <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
+          <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros Particulares y Personales
           </h2>
         </div>
@@ -166,8 +166,8 @@ const IndexPage = () => (
       {/* Seguros de Empresas */}
 
       <div id="seguros-empresariales" class="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
-        <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
-          <h2 class="text-xl font-semibold m-2 uppercase">
+        <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
+          <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros Para Empresas
           </h2>
         </div>
@@ -209,7 +209,7 @@ const IndexPage = () => (
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
           Soluciones para la proteccion de la responsabilidad frente a terceros:
         </h3>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>Responsabilidad civil para empresas</li>
           <li>Responsabilidad civil directivos y administradores sociales</li>
           <li>Responsabilidad civil profesional</li>
@@ -221,7 +221,7 @@ const IndexPage = () => (
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
           Soluciones para la proteccion de cuentas de resultados:
         </h3>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>Seguros de credito</li>
           <li>
             Seguros de contingencias: seguro de cancelación de eventos, seguro
