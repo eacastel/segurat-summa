@@ -38,8 +38,8 @@ const HeroSlider = () => {
           </div>
           {/* Text Overlay */}
           <div className="absolute top-0 left-0 w-full h-full">
-            <div className="mt-[25px] ml-[30px] text-left">
-              <div className="bg-black bg-opacity-50 p-4 inline-block">
+          <div className="mt-[25px] ml-[30px] text-left">
+              <div className="bg-black bg-opacity-50 p-3 inline-block">
                 <h2 className="text-2xl md:text-4xl font-bold capitalize text-white">
                   Seguros Personales y Empresariales
                 </h2>
