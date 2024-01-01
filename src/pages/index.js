@@ -165,7 +165,7 @@ const IndexPage = () => (
 
       {/* Seguros de Empresas */}
 
-      <div id="seguros-empresariales" class="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
+      <div id="seguros-empresariales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
         <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros Para Empresas
@@ -175,7 +175,7 @@ const IndexPage = () => (
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
           Soluciones para la proteccion del patrimonio:
         </h3>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>
             <strong>Seguro para industrias y servicios:</strong> seguro
             multirriesgo empresarial
@@ -233,16 +233,16 @@ const IndexPage = () => (
         <h3 className="text-[rgb(180,190,15)] pl-4 pt-6 uppercase text-xl font-semibold">
           Soluciones para la proteccion del personal de la empresa:
         </h3>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>Seguros de salud</li>
         </ul>
       </div>
 
       {/* Agroseguros */}
 
-      <div id="agroseguros" class="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
-        <div class="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
-          <h2 class="text-xl font-semibold m-2 uppercase">
+      <div id="agroseguros" className="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
+        <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
+          <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros para el Campo | Agroseguros
           </h2>
         </div>
