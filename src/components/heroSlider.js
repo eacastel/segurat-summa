@@ -17,7 +17,7 @@ const HeroSlider = () => {
     <div className="mx-auto overflow-hidden">
       <Slider {...settings}>
         {/* Slide 1 */}
-        <div className="relative">
+        <div key="slide1" className="relative">
           {/* For mobile: aspect ratio */}
           <div className="block md:hidden h-64">
             <StaticImage
@@ -51,7 +51,7 @@ const HeroSlider = () => {
           </div>
         </div>
         {/* Slide 2 */}
-        <div className="relative">
+        <div key="slide2" className="relative">
           {/* For mobile: aspect ratio */}
           <div className="block md:hidden h-64">
             <StaticImage
