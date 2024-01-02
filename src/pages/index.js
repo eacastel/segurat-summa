@@ -2,13 +2,14 @@ import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import HeroSlider from "../components/heroSlider"
+import ContactButton from "../components/contactButton"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Segurat - Summa Insurance | Especialistas en seguros personales, patrimoniales y agrarios en Almenara, Castellón y Valencia." />
     <HeroSlider />
 
     <div className="container mx-auto px-2">
@@ -18,6 +19,7 @@ const IndexPage = () => (
           y Valencia.
         </h1>
       </div>
+      <ContactButton />
       {/* Image and Text Wrapper */}
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:mt-0">
@@ -41,6 +43,7 @@ const IndexPage = () => (
             vida, salud, decesos, comerciales, agrarios y más. También
             tramitamos tus siniestros y gestionamos tu seguro contratado.
           </p>
+          
         </div>
 
         {/* Checkmark Items (1/3 of the page on wide screens) */}
@@ -161,6 +164,8 @@ const IndexPage = () => (
             <strong>Seguro para caballos</strong>
           </li>
         </ul>
+        <div className="mt-10"><ContactButton /></div>
+        
       </div>
 
       {/* Seguros de Empresas */}
@@ -236,6 +241,7 @@ const IndexPage = () => (
         <ul className="list-disc pl-5">
           <li>Seguros de salud</li>
         </ul>
+        <div className="mt-10"><ContactButton /></div>
       </div>
 
       {/* Agroseguros */}
@@ -265,6 +271,7 @@ const IndexPage = () => (
               explotaciones ganaderas.
             </p>
           </div>
+          <div className="mt-10"><ContactButton /></div>
         </div>
       </div>
     </div>
