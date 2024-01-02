@@ -10,7 +10,7 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Segurat - Summa Insurance | Especialistas en seguros personales, patrimoniales y agrarios en Almenara, Castellón y Valencia." 
-    image="../images/segurat-summa-insurance-512-w.png" />
+    image="/segurat-summa-insurance-512-w.png" />
     <HeroSlider />
 
     <div className="container mx-auto px-2">
