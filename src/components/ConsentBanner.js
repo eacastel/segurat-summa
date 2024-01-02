@@ -13,7 +13,12 @@ const ConsentBanner = () => {
   const giveConsent = () => {
     localStorage.setItem('gdprConsent', 'true');
     setShowBanner(false);
-    // Additional actions after consent
+    
+    // Push an event to the data layer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'allow-google-analytics',
+    });
   };
 
   if (!showBanner) return null;
