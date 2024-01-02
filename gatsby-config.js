@@ -3,6 +3,7 @@ module.exports = {
     title: `Segurat - Summa Insurance | Especialistas en seguros personales, patrimoniales y agrarios en Almenara, Castellón y Valencia.`,
     description: `En Segurat - Summa Insurance te ayudamos a encontrar las mejores pólizas de seguros en Almenara, Castellón y Valencia. Ahorra en tu seguro con asesoría personalizada y profesional por expertos en seguros personales, patrimoniales y agrarios.`,
     author: `Segurat - Summa Insurance`,
+    siteUrl: 'https://segurat-summa.es',
   },
   flags: {
     THE_FLAG: false
