@@ -1,13 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Segurat - Summa Insurance: Especialistas en seguros patrimoniales y agrarios en Almenara, Castellón y Valencia.`,
-    description: `En Summa Insurance - Segurat te ayudamos a encontrar las mejores pólizas de seguros en Almenara, Castellón y Valencia. Ahorra en tu seguro con asesoría personalizada y profesional por expertos en seguros patrimoniales y agrarios.`,
+    title: `Segurat - Summa Insurance | Especialistas en seguros personales, patrimoniales y agrarios en Almenara, Castellón y Valencia.`,
+    description: `En Segurat - Summa Insurance te ayudamos a encontrar las mejores pólizas de seguros en Almenara, Castellón y Valencia. Ahorra en tu seguro con asesoría personalizada y profesional por expertos en seguros personales, patrimoniales y agrarios.`,
     author: `Segurat - Summa Insurance`,
   },
   flags: {
     THE_FLAG: false
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleTagManager: {
+          trackingId: 'G-Q27WRR1LJK', 
+          cookieName: 'gdprConsent', 
+          dataLayerName: 'dataLayer', 
+        },
+        environments: ['production', 'development'],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -24,28 +35,24 @@ module.exports = {
       options: {
         name: `Segurat - Summa Insurance`,
         short_name: `Segurat`,
+        lang: `es`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: `#e5e7eb`,
+        theme_color: `#e5e7eb`,
+        display: `standalone`,
         icon: `src/images/favicon-summa-seguros.gif`, 
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          "G-Q27WRR1LJK",
+        icons: [
+          {
+            src: `src/images/segurat-summa-insurance-192-w.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `src/images/segurat-summa-insurance-512-w.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
         ],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-          delayOnRouteUpdate: 0,
-        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
