@@ -80,7 +80,7 @@ SEO.defaultProps = {
   lang: `es`,
   meta: [],
   description: ``,
-  image: `../src/images/segurat-summa-insurance-512-w.png`,
+  image: `/segurat-summa-insurance-512-w.png`,
 };
 
 SEO.propTypes = {
