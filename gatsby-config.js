@@ -9,7 +9,7 @@ module.exports = {
     THE_FLAG: false
   },
   plugins: [
-    {
+    process.env.GATSBY_ENVIRONMENT === 'production' && {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
@@ -23,7 +23,7 @@ module.exports = {
           cookieName: 'gdprConsent', 
           dataLayerName: 'dataLayer', 
         },
-        environments: ['production', 'development'],
+        environments: ['production'],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -79,5 +79,5 @@ module.exports = {
         tailwind: true,
       },
     }
-  ],
+  ].filter(Boolean),
 }

@@ -2,9 +2,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-
 import Header from "./header";
 import LayoutWrapper from "./layoutWrapper";
+import ConsentBanner from './ConsentBanner';
 import Footer from "./footer";
 
 const Layout = ({ children }) => {
@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <ConsentBanner />
       <LayoutWrapper>
         <Header siteTitle={data.site.siteMetadata.title} />
       </LayoutWrapper>
