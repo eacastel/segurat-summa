@@ -12,10 +12,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
+        googleAnalytics: {
+          trackingId: 'G-Q27WRR1LJK', // leave empty if you want to disable the tracker
+          cookieName: 'gdprConsent', // default
+          anonymize: false, // default
+          allowAdFeatures: false // default
+        },
         googleTagManager: {
-          trackingId: 'G-Q27WRR1LJK', 
-          cookieName: 'gdprConsent', 
-          dataLayerName: 'dataLayer', 
+          trackingId: 'GTM-NQXKZMG5D', // leave empty if you want to disable the tracker
+          cookieName: 'gdprConsent', // default
+          dataLayerName: 'dataLayer', // default
         },
         environments: ['production', 'development'],
       },
