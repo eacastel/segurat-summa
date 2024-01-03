@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from "@reach/router"; // Import useLocation
-import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies'; // Import initializeAndTrack
 
 const ConsentBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
-  const location = useLocation(); // Use the location hook
 
   useEffect(() => {
     // Check the consent status on component mount
@@ -25,11 +22,6 @@ const ConsentBanner = () => {
         'event': dataLayerEvent,
       });
     }
-
-    if (consentValue === 'true') {
-      // Initialize and track after consent is given
-      initializeAndTrack(location);
-    }
   };
 
   const giveConsent = () => {
@@ -45,7 +37,7 @@ const ConsentBanner = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gray-600 bg-opacity-90 py-2 px-6 shadow-md text-center z-50">
       <p className="text-m mb-4 text-white font-bold">Este sitio web utiliza cookies.<br />
-      En nuestra web anonimizamos tus datos y solo utilizamos cookies para analizar cómo proporcionar un mejor servicio.</p>
+      En nuestra web utilizamos cookies para ofrecer un mejor servicio.</p>
       <button onClick={giveConsent} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Aceptar
       </button>

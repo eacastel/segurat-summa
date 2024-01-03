@@ -13,15 +13,15 @@ module.exports = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: 'G-Q27WRR1LJK', // leave empty if you want to disable the tracker
-          cookieName: 'gdprConsent', // default
-          anonymize: false, // default
-          allowAdFeatures: false // default
+          trackingId: 'G-Q27WRR1LJK', 
+          cookieName: 'gdprConsent', 
+          anonymize: false, 
+          allowAdFeatures: false
         },
         googleTagManager: {
-          trackingId: 'GTM-NQXKZMG5D', // leave empty if you want to disable the tracker
-          cookieName: 'gdprConsent', // default
-          dataLayerName: 'dataLayer', // default
+          trackingId: 'GTM-NQXKZMG5D', 
+          cookieName: 'gdprConsent', 
+          dataLayerName: 'dataLayer', 
         },
         environments: ['production', 'development'],
       },
