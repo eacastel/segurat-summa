@@ -97,7 +97,7 @@ const IndexPage = () => (
 
       {/* Seguros Particulares */}
 
-      <div id="seguros-patrimoniales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg text-left border border-gray-500 p-6 my-4 mt-20">
+      <div id="seguros-patrimoniales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg text-left border border-gray-500 p-4 md:my-4 mt-20">
         <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros Particulares y Personales
@@ -171,7 +171,7 @@ const IndexPage = () => (
 
       {/* Seguros de Empresas */}
 
-      <div id="seguros-empresariales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
+      <div id="seguros-empresariales" className="bg-lime-50 bg-opacity-50 shadow-lg rounded-lg border border-gray-500 p-4 my-4 mt-20">
         <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros Para Empresas
@@ -247,7 +247,7 @@ const IndexPage = () => (
 
       {/* Agroseguros */}
 
-      <div id="agroseguros" className="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-6 my-4 mt-20">
+      <div id="agroseguros" className="bg-lime-50 shadow-lg rounded-lg border border-gray-500 p-4 my-4 mt-20">
         <div className="bg-[rgb(180,190,15)] bg-opacity-70 w-full text-center p-1 rounded-lg">
           <h2 className="text-xl font-semibold m-2 uppercase">
             Seguros para el Campo | Agroseguros

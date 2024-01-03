@@ -7,7 +7,7 @@ const LayoutWrapper = ({ children }) => {
   return (
     <>
     <ConsentBanner />
-    <div style={{ margin: '0 auto', maxWidth: 1240, padding: '0 1.0875rem' }}>
+    <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
       {children}
     </div>
     </>
