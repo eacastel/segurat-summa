@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from "@reach/router"; // Import useLocation
+import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies'; // Import initializeAndTrack
 
 const ConsentBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
+  const location = useLocation(); // Use the location hook
 
   useEffect(() => {
     // Check the consent status on component mount
@@ -21,6 +24,11 @@ const ConsentBanner = () => {
       window.dataLayer.push({
         'event': dataLayerEvent,
       });
+    }
+
+    if (consentValue === 'true') {
+      // Initialize and track after consent is given
+      initializeAndTrack(location);
     }
   };
 
