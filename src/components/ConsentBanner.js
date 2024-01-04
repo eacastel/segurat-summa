@@ -18,9 +18,8 @@ const ConsentBanner = () => {
     setShowBanner(false);
 
     if (consentValue === 'true') {
+      // Initialize tracking after consent
       initializeAndTrack(location);
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ 'event': 'allow-google-analytics' });
     }
   };
 

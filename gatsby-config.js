@@ -13,17 +13,22 @@ module.exports = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: 'G-Q27WRR1LJK', 
-          cookieName: 'gdprConsent', 
-          anonymize: false, 
+          trackingId: 'G-Q27WRR1LJK',
+          cookieName: 'gdprConsent',
+          anonymize: false,
           allowAdFeatures: false
         },
         googleTagManager: {
-          trackingId: 'GTM-NQXKZMG5D', 
-          cookieName: 'gdprConsent', 
-          dataLayerName: 'dataLayer', 
+          trackingId: 'GTM-NQXKZMG5D',
+          cookieName: 'gdprConsent',
+          dataLayerName: 'dataLayer',
+          defaultDataLayer: function () {
+            return {
+              platform: 'gatsby',
+            };
+          },
+          environments: ['production'],
         },
-        environments: ['production'],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -47,7 +52,7 @@ module.exports = {
         background_color: `#e5e7eb`,
         theme_color: `#e5e7eb`,
         display: `standalone`,
-        icon: `src/images/favicon-summa-seguros.gif`, 
+        icon: `src/images/favicon-summa-seguros.gif`,
         icons: [
           {
             src: `src/images/segurat-summa-insurance-192-w.png`,
