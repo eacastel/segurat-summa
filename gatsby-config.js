@@ -9,25 +9,14 @@ module.exports = {
     THE_FLAG: false
   },
   plugins: [
-    process.env.GATSBY_ENVIRONMENT === 'production' && {
-      resolve: `gatsby-plugin-gdpr-cookies`,
+    {
+    resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
           trackingId: 'G-Q27WRR1LJK',
-          cookieName: 'gdprConsent',
-          anonymize: false,
-          allowAdFeatures: false
-        },
-        googleTagManager: {
-          trackingId: 'GTM-NQXKZMG5D',
-          cookieName: 'gdprConsent',
-          dataLayerName: 'dataLayer',
-          defaultDataLayer: function () {
-            return {
-              platform: 'gatsby',
-            };
-          },
-          environments: ['production'],
+          cookieName: "gdprConsent",
+          anonymize: true,
+          allowAdFeatures: false,
         },
       },
     },
