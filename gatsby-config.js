@@ -5,9 +5,6 @@ module.exports = {
     author: `Segurat - Summa Insurance`,
     siteUrl: 'https://segurat-summa.es',
   },
-  flags: {
-    THE_FLAG: false
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
@@ -15,7 +12,7 @@ module.exports = {
         googleAnalytics: {
           trackingId: 'G-Q27WRR1LJK',
           cookieName: 'gatsby-gdpr-google-analytics',
-          anonymize: false,
+          anonymize: true,
           allowAdFeatures: false,
         },
       },

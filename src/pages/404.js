@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h1>LO SENTIMOS LA PAGINA QUE BUSCAS NO EXISTE</h1>
+    <p>Haz clic <a href="https://segurat-summa.es/">aquí</a> para volver a la página principal.</p>
   </Layout>
 )
 

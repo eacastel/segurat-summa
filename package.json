@@ -1,13 +1,13 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ai-template-01-segurat-summa-insurance",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby and TailwindCSS",
-  "version": "0.3.0",
-  "author": "Kostas Vrouvas <hello@kosvrouvas.com>",
+  "description": "Build for Segurat Summa Insurance with GDRP compliance one page web application. Based on Default Gatsby Starter",
+  "version": "0.1.0",
+  "author": "Emilio Castellanos <emilio@avantiinteractive.com>",
   "dependencies": {
     "autoprefixer": "^10.4.7",
     "gatsby": "^4.25.8",
-    "gatsby-plugin-gdpr-cookies": "^2.0.9",
+    "gatsby-plugin-gdpr-cookies": "^2.0.7",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-manifest": "^4.24.0",
     "gatsby-plugin-offline": "^5.24.0",
@@ -45,9 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kosvrouvas/gatsby-tailwindcss-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/kosvrouvas/gatsby-tailwindcss-starter/issues"
+    "url": "https://github.com/eacastel/segurat-summa"
   }
 }
