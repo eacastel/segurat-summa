@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <ConsentBanner />
       <LayoutWrapper>
+        <ConsentBanner />
         <Header siteTitle={data.site.siteMetadata.title} />
       </LayoutWrapper>
       <LayoutWrapper>
