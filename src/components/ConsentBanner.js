@@ -19,7 +19,13 @@ const ConsentBanner = () => {
 
     if (consentValue === 'true') {
       initializeAndTrack(location);
+    
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'allow-google-analytics',
+    });
     }
+
   };
 
   if (!showBanner) return null;
