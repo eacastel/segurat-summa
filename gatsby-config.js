@@ -26,7 +26,7 @@ module.exports = {
             return {
               platform: 'gatsby',
             };
-          }, // <-- Added comma here
+          },
           environments: ['production'],
         },
       },
