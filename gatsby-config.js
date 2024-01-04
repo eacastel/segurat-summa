@@ -12,9 +12,9 @@ module.exports = {
         googleAnalytics: {
           trackingId: 'G-Q27WRR1LJK',
           cookieName: 'gatsby-gdpr-google-analytics',
-          anonymize: true,
-          allowAdFeatures: false,
+          anonymize: true
         },
+        environments: ['production', 'development']
       },
     },
     `gatsby-plugin-react-helmet`,
