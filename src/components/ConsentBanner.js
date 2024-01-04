@@ -7,18 +7,17 @@ const ConsentBanner = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const consent = localStorage.getItem('gdprConsent');
+    const consent = localStorage.getItem('gatsby-gdpr-google-analytics');
     if (consent === null) {
       setShowBanner(true);
     }
   }, []);
 
   const handleConsent = (consentValue) => {
-    localStorage.setItem('gdprConsent', consentValue);
+    localStorage.setItem('gatsby-gdpr-google-analytics', consentValue);
     setShowBanner(false);
 
     if (consentValue === 'true') {
-      // Initialize tracking after consent
       initializeAndTrack(location);
     }
   };
