@@ -20,7 +20,6 @@ const ConsentBanner = () => {
     if (consentValue === 'true') {
       initializeAndTrack(location);
     }
-
   };
 
   if (!showBanner) return null;
