@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+ })
+
 module.exports = {
   siteMetadata: {
     title: `Segurat - Summa Insurance | Especialistas en seguros personales, patrimoniales y agrarios en Almenara, Castellón y Valencia.`,
@@ -12,9 +16,10 @@ module.exports = {
         googleAnalytics: {
           trackingId: 'G-Q27WRR1LJK',
           cookieName: 'gatsby-gdpr-google-analytics',
-          anonymize: true
+          anonymize: true,
+          allowAdFeatures: false 
         },
-        environments: ['production', 'development']
+        environments: ['process.env.ENVIRONMENT']
       },
     },
     `gatsby-plugin-react-helmet`,
