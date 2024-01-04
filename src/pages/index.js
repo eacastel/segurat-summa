@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import HeroSlider from "../components/heroSlider"
 import ContactButton from "../components/contactButton"
