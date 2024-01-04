@@ -27,7 +27,6 @@ module.exports = {
               platform: 'gatsby',
             };
           },
-          environments: ['production'],
         },
       },
     },
