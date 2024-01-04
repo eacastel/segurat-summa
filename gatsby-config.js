@@ -10,13 +10,24 @@ module.exports = {
   },
   plugins: [
     {
-    resolve: `gatsby-plugin-gdpr-cookies`,
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
           trackingId: 'G-Q27WRR1LJK',
-          cookieName: "gdprConsent",
-          anonymize: true,
-          allowAdFeatures: false,
+          cookieName: 'gdprConsent',
+          anonymize: false,
+          allowAdFeatures: false
+        },
+        googleTagManager: {
+          trackingId: 'GTM-NQXKZMG5D',
+          cookieName: 'gdprConsent',
+          dataLayerName: 'dataLayer',
+          defaultDataLayer: function() {
+            return {
+              platform: 'gatsby',
+            };
+          }, // <-- Added comma here
+          environments: ['production'],
         },
       },
     },
