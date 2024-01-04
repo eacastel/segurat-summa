@@ -14,12 +14,13 @@ module.exports = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: 'G-Q27WRR1LJK',
-          cookieName: 'gatsby-gdpr-google-analytics',
-          anonymize: true,
-          allowAdFeatures: false 
+          trackingId: 'G-Q27WRR1LJK', // Your Google Analytics tracking ID
+          cookieName: 'gatsby-gdpr-google-analytics', // Custom cookie name
+          anonymize: true, // GDPR settings
+          allowAdFeatures: false
         },
-        environments: 'process.env.GATSBY_ENVIRONMENT'
+        // Define the environments where the tracking should be active
+        environments: ['production'], // Only enable tracking in production
       },
     },
     `gatsby-plugin-react-helmet`,
