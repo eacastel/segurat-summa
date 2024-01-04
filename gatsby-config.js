@@ -18,16 +18,6 @@ module.exports = {
           anonymize: false,
           allowAdFeatures: false
         },
-        googleTagManager: {
-          trackingId: 'GTM-NQXKZMG5D',
-          cookieName: 'gdprConsent',
-          dataLayerName: 'dataLayer',
-          defaultDataLayer: function() {
-            return {
-              platform: 'gatsby',
-            };
-          },
-        },
       },
     },
     `gatsby-plugin-react-helmet`,
