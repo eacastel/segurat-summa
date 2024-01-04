@@ -16,7 +16,7 @@ module.exports = {
           trackingId: 'G-Q27WRR1LJK',
           cookieName: 'gdprConsent',
           anonymize: false,
-          allowAdFeatures: false
+          allowAdFeatures: false,
         },
       },
     },
