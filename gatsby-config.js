@@ -19,7 +19,7 @@ module.exports = {
           anonymize: true,
           allowAdFeatures: false 
         },
-        environments: ['process.env.ENVIRONMENT']
+        environments: 'process.env.GATSBY_ENVIRONMENT'
       },
     },
     `gatsby-plugin-react-helmet`,
