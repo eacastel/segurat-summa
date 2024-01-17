@@ -1,23 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from "@reach/router"; 
+import { useLocation } from "@reach/router";
 import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies';
 
+function isBrowser() {
+  return typeof window !== 'undefined';
+}
+
+function getValue(key, defaultValue) {
+  return isBrowser() && window.localStorage.getItem(key)
+    ? JSON.parse(window.localStorage.getItem(key))
+    : defaultValue;
+}
+
+function setValue(key, value) {
+  window.localStorage.setItem(key, JSON.stringify(value));
+}
+
+function useStickyState(defaultValue, key) {
+  const [value, setter] = useState(() => {
+    return getValue(key, defaultValue);
+  });
+
+  useEffect(() => {
+    setValue(key, value);
+  }, [key, value]);
+
+  return [value, setter];
+}
+
 const ConsentBanner = () => {
-  const [showBanner, setShowBanner] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const consent = localStorage.getItem('gatsby-gdpr-google-analytics');
+    const consent = getValue('gatsby-gdpr-google-analytics', null);
     if (consent === null) {
       setShowBanner(true);
     }
   }, []);
 
+  const [showBanner, setShowBanner] = useStickyState(false, 'consentBannerHidden');
+
   const handleConsent = (consentValue) => {
-    localStorage.setItem('gatsby-gdpr-google-analytics', consentValue);
+    setValue('gatsby-gdpr-google-analytics', consentValue);
     setShowBanner(false);
 
-    if (consentValue === 'true') {
+    if (consentValue === true) {
       initializeAndTrack(location);
     }
   };
@@ -29,12 +56,12 @@ const ConsentBanner = () => {
       <p className="text-m mb-4 text-white font-bold">Este sitio web utiliza cookies.<br />
       En nuestra web anonimizamos tus datos personales y solo utilizamos cookies anónimas para proporcionar un mejor servicio.</p>
       <button 
-        onClick={() => handleConsent('true')} 
+        onClick={() => handleConsent(true)} 
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Aceptar
       </button>
       <button 
-        onClick={() => handleConsent('false')}
+        onClick={() => handleConsent(false)}
         className="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
         Rechazar
       </button>
