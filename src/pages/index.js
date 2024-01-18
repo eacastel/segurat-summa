@@ -257,7 +257,7 @@ const IndexPage = () => (
           <div className="lg:w-1/3 mb-4 lg:mb-0 lg:mr-4">
             <StaticImage
               src="../images/agroseguros-valencia-castellon-almenara.png"
-              alt="Seguros Patrimoniales"
+              alt="Agroseguros"
               className="w-72 lg:w-72 rounded-lg shadow-md"
             />
           </div>
@@ -271,8 +271,8 @@ const IndexPage = () => (
               explotaciones ganaderas.
             </p>
           </div>
-          <div className="mt-10"><ContactButton /></div>
         </div>
+        <div className="mt-6"><ContactButton /></div>
       </div>
     </div>
   </Layout>
