@@ -11,7 +11,7 @@ const Footer = () => {
           <p>Plaça d'Ausiàs March, 5, Bajo, 12590 Almenara, Castellón</p>
           <p>
             <a href="tel:+32621160190" className="text-blue-700 no-underline font-bold underline-no hover:text-blue-500">
-              Tel. +32 621160190
+              Tel. +34 621160190
             </a>
           </p>
           <p className="mt-4 mb-2 font-bold">Horario de apertura:</p>
