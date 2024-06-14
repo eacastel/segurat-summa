@@ -3,7 +3,7 @@ import { FaPhone } from 'react-icons/fa';
 
 const ContactButton = () => {
   return (
-    <a href="tel://+32621160190" target="_blank" className="group block bg-[rgb(180,190,15)] rounded shadow-xl mx-auto max-w-xs md:max-w-md transition duration-300 ease-in-out p-2 mt-4 mb-10 cursor-pointer no-underline">
+    <a href="tel://+34621160190" target="_blank" className="group block bg-[rgb(180,190,15)] rounded shadow-xl mx-auto max-w-xs md:max-w-md transition duration-300 ease-in-out p-2 mt-4 mb-10 cursor-pointer no-underline">
       <div className="flex items-center">
         {/* Icon Column */}
         <div className="w-1/4 flex justify-center">
