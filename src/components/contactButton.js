@@ -14,12 +14,12 @@ const ContactButton = () => {
 
         {/* Text Column */}
         <div className="w-3/4 pl-4">
-          <span className="text-white text-2xl md:text-3xl font-bold group-hover:text-black">+32 621 160 190</span>
+          <span className="text-white text-2xl md:text-3xl font-bold group-hover:text-black">+34 621 160 190</span>
           <p className="text-white text-lg p-0 m-0 group-hover:text-black">Contacta con nosotros!</p>
         </div>
       </div>
     </a>
   );
-};
+}; 
 
 export default ContactButton;
