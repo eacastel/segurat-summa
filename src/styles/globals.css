@@ -105,3 +105,8 @@ input, textarea, select {
 .hero-slick img {
   margin: 0 !important;
 }
+
+/* GatsbyImage inserts an aspect-ratio sizer; remove it so slides can fill height */
+.hero-slick .gatsby-image-wrapper > div[aria-hidden="true"] {
+  display: none !important;
+}

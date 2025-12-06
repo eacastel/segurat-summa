@@ -50,20 +50,19 @@ const HeroSlider = () => {
     if (!image) return null
 
     return (
-      <div className="h-full w-full">
+      <div className="relative w-full h-full">
         <GatsbyImage
           image={image}
           alt={altText}
-          className="h-full w-full"
-          imgClassName="h-full w-full object-cover"
+          className="absolute inset-0 w-full h-full"
+          imgClassName="w-full h-full object-cover"
         />
       </div>
     )
   }
-
   return (
     <div className="hero-slick w-full h-full overflow-hidden">
-    <Slider {...settings} className="h-full">
+      <Slider {...settings} className="h-full">
         {renderSlide(data.oranges, "Agroseguros Valencia - Naranjos")}
         {renderSlide(data.agro, "Seguro del Campo: Granjeros y Cultivos")}
         {renderSlide(data.business, "Seguros para Empresas y Negocios")}
