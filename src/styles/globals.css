@@ -57,10 +57,9 @@ blockquote {
   @apply px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg shadow-md hover:bg-gray-200 my-2;
 }
 /* Image Styles */
-img {
+.prose img {
   @apply max-w-full h-auto my-4;
 }
-
 /* Table Styles */
 table {
   @apply min-w-full divide-y divide-gray-200 my-4;
@@ -100,4 +99,9 @@ input, textarea, select {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+}
+
+/* GatsbyImage uses absolutely-positioned <img>; global img margins break hero */
+.hero-slick img {
+  margin: 0 !important;
 }
