@@ -67,7 +67,7 @@ const HeroSlider = () => {
         {renderSlide(data.oranges, "Agroseguros Valencia - Naranjos")}
         {renderSlide(data.agro, "Seguro del Campo: Granjeros y Cultivos")}
         {renderSlide(data.business, "Seguros para Empresas y Negocios")}
-        {renderSlide(data.castle, "Seguros en Almenara - Castillo")}
+        {renderSlide(data.castle, "Seguros en Almenara - Castillo ")}
       </Slider>
     </div>
   )
