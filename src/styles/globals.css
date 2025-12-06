@@ -82,3 +82,13 @@ input, textarea, select {
     object-fit: cover; /* Optional: for better image handling */
   }
 }
+
+/* Force all of react-slick's internal divs to take full height */
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide,
+/* This targets the div that reacts-slick wraps around your slide content */
+.slick-slide > div {
+    height: 100%;
+}
