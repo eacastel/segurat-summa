@@ -50,7 +50,7 @@ const HeroSlider = () => {
     if (!image) return null
 
     return (
-      <div className="h-full">
+      <div className="h-full w-full">
         <GatsbyImage
           image={image}
           alt={altText}

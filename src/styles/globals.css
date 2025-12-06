@@ -83,11 +83,12 @@ input, textarea, select {
 }
 
 /* Force react-slick to fill the hero height even if it sets inline heights */
+.hero-slick,
+.hero-slick .slick-slider,
 .hero-slick .slick-list,
 .hero-slick .slick-track,
 .hero-slick .slick-slide,
-.hero-slick .slick-slide > div,
-.hero-slick .slick-slider {
+.hero-slick .slick-slide > div {
   height: 100% !important;
 }
 
