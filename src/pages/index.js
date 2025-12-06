@@ -201,17 +201,15 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="scroll-smooth">
-      <SEO title="Segurat - Summa Insurance | Seguros en Almenara" image="/segurat-summa-insurance-512-w.png" />
+        <SEO title="Segurat - Summa Insurance | Seguros en Almenara" image="/segurat-summa-insurance-512-w.png" />
 
-      {/* HERO */}
-      <div className="relative bg-off-white">
+        {/* HERO */}
         <div className="w-full h-[850px] md:h-[750px] relative overflow-hidden">
-  <div className="absolute inset-0">
-    <HeroSlider />
-  </div>
-
-  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30 pointer-events-none"></div>
-</div>
+          <div className="absolute inset-0">
+            <HeroSlider />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30 pointer-events-none" />
+        </div>
 
         {/* OVERLAPPING CARD */}
         <div className="container mx-auto max-w-7xl px-4 relative z-20 flex flex-col md:items-end">
@@ -309,55 +307,55 @@ const IndexPage = () => {
 
             {/* Right */}
             <div className="grid gap-4">
-  {quickLinks.map((item) => (
-    <a
-      key={item.label}
-      href={item.href}
-      className={`
+              {quickLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`
         group block rounded-2xl border bg-white p-5 shadow-sm
         hover:shadow-lg hover:-translate-y-[2px] transition
         border-gray-100 border-l-8 ${item.accent}
         focus:outline-none focus:ring-2 focus:ring-brand-orange/40
       `}
-    >
-      <div className="flex items-center gap-4">
-        <div className="relative">
-          <div className={`p-3 rounded-full ${item.chip} ring-1 ring-black/5`}>
-            {checkmarkImg && (
-              <GatsbyImage image={checkmarkImg} alt="" className="w-9 h-9" />
-            )}
-          </div>
-          <span className="absolute -bottom-2 -right-2 text-[11px] font-bold px-2 py-1 rounded-full bg-white shadow ring-1 ring-black/5">
-            Ver
-          </span>
-        </div>
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className={`p-3 rounded-full ${item.chip} ring-1 ring-black/5`}>
+                        {checkmarkImg && (
+                          <GatsbyImage image={checkmarkImg} alt="" className="w-9 h-9" />
+                        )}
+                      </div>
+                      <span className="absolute -bottom-2 -right-2 text-[11px] font-bold px-2 py-1 rounded-full bg-white shadow ring-1 ring-black/5">
+                        Ver
+                      </span>
+                    </div>
 
-        <div className="min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-lg md:text-xl font-extrabold text-brand-black group-hover:text-brand-orange transition">
-              {item.label}
-            </span>
-          </div>
-          <p className="mt-1 text-sm text-gray-600">
-            Haz clic para ver coberturas y pedir presupuesto.
-          </p>
-        </div>
-      </div>
-    </a>
-  ))}
-</div>
-       
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg md:text-xl font-extrabold text-brand-black group-hover:text-brand-orange transition">
+                          {item.label}
+                        </span>
+                      </div>
+                      <p className="mt-1 text-sm text-gray-600">
+                        Haz clic para ver coberturas y pedir presupuesto.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
           </div>
 
           {/* How we work block */}
           {/* How we work block (highlight section) */}
-<div className="mt-16">
-  <div className="rounded-3xl bg-gradient-to-b from-brand-orange/10 to-transparent p-[1px]">
-    <div className="rounded-3xl bg-white px-6 py-10 md:px-10 md:py-12 shadow-lg border border-brand-orange/10">
-      <HowWeWork />
-    </div>
-  </div>
-</div>
+          <div className="mt-16">
+            <div className="rounded-3xl bg-gradient-to-b from-brand-orange/10 to-transparent p-[1px]">
+              <div className="rounded-3xl bg-white px-6 py-10 md:px-10 md:py-12 shadow-lg border border-brand-orange/10">
+                <HowWeWork />
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -497,8 +495,8 @@ const IndexPage = () => {
       <div id="contacto" className="container mx-auto max-w-7xl px-4 mb-20 scroll-mt-32">
         <NetlifyForm />
       </div>
-      </div>
-    </Layout>
+    </div>
+    </Layout >
   )
 }
 

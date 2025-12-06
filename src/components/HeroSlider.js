@@ -62,10 +62,7 @@ const HeroSlider = () => {
   }
 
   return (
-    <div
-    className="hero-slick w-full h-full overflow-hidden"
-    style={{ height: "100%" }}
-  >
+    <div className="hero-slick w-full h-full overflow-hidden">
     <Slider {...settings} className="h-full">
         {renderSlide(data.oranges, "Agroseguros Valencia - Naranjos")}
         {renderSlide(data.agro, "Seguro del Campo: Granjeros y Cultivos")}

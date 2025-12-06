@@ -82,21 +82,21 @@ input, textarea, select {
   }
 }
 
-.hero-slick,
-.hero-slick .slick-slider,
+/* Force react-slick to fill the hero height even if it sets inline heights */
 .hero-slick .slick-list,
 .hero-slick .slick-track,
 .hero-slick .slick-slide,
-.hero-slick .slick-slide > div {
-  height: 100%;
+.hero-slick .slick-slide > div,
+.hero-slick .slick-slider {
+  height: 100% !important;
 }
 
 .hero-slick .gatsby-image-wrapper {
-  height: 100%;
+  height: 100% !important;
 }
 
 .hero-slick .gatsby-image-wrapper img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
