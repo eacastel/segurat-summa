@@ -206,9 +206,12 @@ const IndexPage = () => {
       {/* HERO */}
       <div className="relative bg-off-white">
         <div className="w-full h-[850px] md:h-[750px] relative overflow-hidden">
-          <HeroSlider />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30 pointer-events-none" />
-        </div>
+  <div className="absolute inset-0">
+    <HeroSlider />
+  </div>
+
+  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30 pointer-events-none"></div>
+</div>
 
         {/* OVERLAPPING CARD */}
         <div className="container mx-auto max-w-7xl px-4 relative z-20 flex flex-col md:items-end">

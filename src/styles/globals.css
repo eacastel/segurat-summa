@@ -53,10 +53,9 @@ blockquote {
 }
 
 /* Button Styles */
-button {
+.btn-default {
   @apply px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg shadow-md hover:bg-gray-200 my-2;
 }
-
 /* Image Styles */
 img {
   @apply max-w-full h-auto my-4;
@@ -83,12 +82,21 @@ input, textarea, select {
   }
 }
 
-/* Force all of react-slick's internal divs to take full height */
-.slick-slider,
-.slick-list,
-.slick-track,
-.slick-slide,
-/* This targets the div that reacts-slick wraps around your slide content */
-.slick-slide > div {
-    height: 100%;
+.hero-slick,
+.hero-slick .slick-slider,
+.hero-slick .slick-list,
+.hero-slick .slick-track,
+.hero-slick .slick-slide,
+.hero-slick .slick-slide > div {
+  height: 100%;
+}
+
+.hero-slick .gatsby-image-wrapper {
+  height: 100%;
+}
+
+.hero-slick .gatsby-image-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
