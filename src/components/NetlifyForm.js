@@ -47,7 +47,7 @@ export default function NetlifyForm() {
           ¿Necesitas presupuesto?
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Déjanos tus datos y te contactamos en menos de 24h para ofrecerte la mejor opción.
+          Déjanos tus datos y te contactamos lo antes posible para ofrecerte la mejor opción.
         </p>
       </div>
 
@@ -187,7 +187,7 @@ export default function NetlifyForm() {
               ¡Listo!
             </h3>
             <p className="mt-3 text-gray-700">
-              Hemos recibido tu solicitud. Te contactaremos en menos de 24h.
+              Hemos recibido tu solicitud. Te contactaremos lo antes posible.
             </p>
             <button
               className="mt-8 w-full bg-brand-black text-white font-extrabold py-3 rounded-lg hover:bg-gray-900 transition"
