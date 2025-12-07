@@ -7,8 +7,10 @@ import SEO from "../components/Seo"
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: No Existe" />
+    <body>
     <h1>LO SENTIMOS LA PAGINA QUE BUSCAS NO EXISTE</h1>
     <p>Haz clic <Link to="/">aquí</Link> para volver a la página principal.</p>
+    </body>
   </Layout>
 )
 

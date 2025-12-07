@@ -10,6 +10,7 @@
     "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-manifest": "^4.24.0",
+    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-offline": "^5.24.0",
     "gatsby-plugin-postcss": "^5.24.0",
     "gatsby-plugin-purgecss": "^6.1.2",
@@ -37,7 +38,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
