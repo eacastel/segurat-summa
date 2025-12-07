@@ -28,6 +28,7 @@ export default function NetlifyForm() {
       if (!res.ok) throw new Error("Bad response")
 
       setSent(true)
+      window.scrollTo({ top: 0, behavior: "smooth" })
       form.reset()
     } catch (err) {
       setError("No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.")
