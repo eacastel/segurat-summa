@@ -10,12 +10,6 @@ module.exports = {
     siteUrl: 'https://segurat-summa.es',
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        environments: ['production'], // Only enable tracking in production
-      },
-    },
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-netlify",
     {
