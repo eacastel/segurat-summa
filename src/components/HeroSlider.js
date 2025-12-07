@@ -1,73 +1,88 @@
-import React from "react"
-import Slider from "react-slick"
+import React, { useEffect, useMemo, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-
 
 const HeroSlider = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query HeroImages {
       castle: file(relativePath: { eq: "castillo-almenara-seguros.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            width: 1920
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+            layout: FULL_WIDTH
+          )
         }
       }
       oranges: file(relativePath: { eq: "mandarinas-almenara-castellon.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            width: 1920
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+            layout: FULL_WIDTH
+          )
         }
       }
       business: file(relativePath: { eq: "seguro-para-empresas.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            width: 1920
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+            layout: FULL_WIDTH
+          )
         }
       }
       agro: file(relativePath: { eq: "campos-de-naranja-valencia.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            width: 1920
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+            layout: FULL_WIDTH
+          )
         }
       }
     }
   `)
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 1500,
-    fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    cssEase: "linear",
-  }
+  const slides = useMemo(
+    () => [
+      { img: getImage(data.oranges), alt: "Agroseguros Valencia - Naranjos" },
+      { img: getImage(data.agro), alt: "Seguro del Campo: Granjeros y Cultivos" },
+      { img: getImage(data.business), alt: "Seguros para Empresas y Negocios" },
+      { img: getImage(data.castle), alt: "Seguros en Almenara - Castillo" },
+    ].filter((s) => !!s.img),
+    [data]
+  )
 
-  const renderSlide = (imageFile, altText) => {
-    const image = getImage(imageFile)
-    if (!image) return null
+  const [active, setActive] = useState(0)
 
-    return (
-      <div className="relative w-full h-full">
-        <GatsbyImage
-          image={image}
-          alt={altText}
-          className="absolute inset-0 w-full h-full"
-          imgClassName="w-full h-full object-cover"
-        />
-      </div>
-    )
-  }
+  useEffect(() => {
+    if (slides.length <= 1) return
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [slides.length])
+
   return (
-    <div className="hero-slick w-full h-full overflow-hidden">
-      <Slider {...settings} className="h-full">
-        {renderSlide(data.oranges, "Agroseguros Valencia - Naranjos")}
-        {renderSlide(data.agro, "Seguro del Campo: Granjeros y Cultivos")}
-        {renderSlide(data.business, "Seguros para Empresas y Negocios")}
-        {renderSlide(data.castle, "Seguros en Almenara - Castillo ")}
-      </Slider>
+    <div className="relative w-full h-full overflow-hidden">
+      {slides.map((s, i) => (
+        <GatsbyImage
+          key={s.alt}
+          image={s.img}
+          alt={s.alt}
+          loading={i === 0 ? "eager" : "lazy"}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-[1200ms] ${
+            i === active ? "opacity-100" : "opacity-0"
+          }`}
+          imgClassName="w-full h-full object-cover !m-0"
+          style={{ margin: 0 }}
+        />
+      ))}
     </div>
   )
 }
