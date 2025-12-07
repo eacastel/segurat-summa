@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
 
 
 /* Heading Styles */
@@ -79,24 +77,4 @@ input, textarea, select {
     aspect-ratio: 2 / 1;
     object-fit: cover; /* Optional: for better image handling */
   }
-}
-
-/* Make react-slick fill the hero height */
-.hero-slick,
-.hero-slick .slick-slider,
-.hero-slick .slick-list,
-.hero-slick .slick-track,
-.hero-slick .slick-slide,
-.hero-slick .slick-slide > div {
-  height: 100% !important;
-}
-
-.hero-slick .gatsby-image-wrapper {
-  height: 100% !important;
-}
-
-.hero-slick .gatsby-image-wrapper img {
-  height: 100% !important;
-  width: 100% !important;
-  object-fit: cover !important;
 }

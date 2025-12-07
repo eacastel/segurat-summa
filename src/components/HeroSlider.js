@@ -1,72 +1,87 @@
-// src/components/HeroSlider.js
-import React from "react"
-import Slider from "react-slick"
+import React, { useEffect, useMemo, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const HeroSlider = () => {
   const data = useStaticQuery(graphql`
-    query HeroSliderImages {
+    query HeroImages {
       castle: file(relativePath: { eq: "castillo-almenara-seguros.png" }) {
         childImageSharp {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
       oranges: file(relativePath: { eq: "mandarinas-almenara-castellon.png" }) {
         childImageSharp {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
       business: file(relativePath: { eq: "seguro-para-empresas.png" }) {
         childImageSharp {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
       agro: file(relativePath: { eq: "campos-de-naranja-valencia.png" }) {
         childImageSharp {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }
   `)
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 900,
-    fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: false,
-    adaptiveHeight: false,
-  }
+  const slides = useMemo(() => {
+    const items = [
+      { img: getImage(data.oranges), alt: "Agroseguros Valencia - Naranjos" },
+      { img: getImage(data.agro), alt: "Seguro del Campo" },
+      { img: getImage(data.business), alt: "Seguros para Empresas" },
+      { img: getImage(data.castle), alt: "Seguros en Almenara - Castillo" },
+    ]
+    return items.filter((s) => !!s.img)
+  }, [data])
 
-  const slide = (imgNode, alt) => {
-    const image = getImage(imgNode)
-    if (!image) return null
-    return (
-      <div className="h-full">
-        <GatsbyImage
-          image={image}
-          alt={alt}
-          className="h-full w-full"
-          imgClassName="h-full w-full object-cover"
-        />
-      </div>
-    )
-  }
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    if (slides.length <= 1) return
+    const t = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(t)
+  }, [slides.length])
 
   return (
-    <div className="hero-slick h-full w-full overflow-hidden">
-      <Slider {...settings}>
-        {slide(data.oranges, "Agroseguros Valencia - Naranjos")}
-        {slide(data.agro, "Seguro del Campo")}
-        {slide(data.business, "Seguros para Empresas")}
-        {slide(data.castle, "Seguros en Almenara - Castillo")}
-      </Slider>
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {slides.map((s, i) => (
+        <div
+          key={s.alt}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <GatsbyImage
+            image={s.img}
+            alt={s.alt}
+            className="w-full h-full"
+            imgClassName="w-full h-full object-cover"
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
     </div>
   )
 }

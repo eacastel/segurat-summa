@@ -30,13 +30,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,     // set true temporarily to confirm it was stripping slick
+      options: {  
         develop: false,
         tailwind: true,
         safelist: [
-          /^slick/,              
-          /^hero-slick$/,        
         ],
       },
     },
