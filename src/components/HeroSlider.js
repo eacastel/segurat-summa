@@ -1,88 +1,72 @@
-import React, { useEffect, useMemo, useState } from "react"
+// src/components/HeroSlider.js
+import React from "react"
+import Slider from "react-slick"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const HeroSlider = () => {
   const data = useStaticQuery(graphql`
-    query HeroImages {
+    query HeroSliderImages {
       castle: file(relativePath: { eq: "castillo-almenara-seguros.png" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 1920
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-            layout: FULL_WIDTH
-          )
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
         }
       }
       oranges: file(relativePath: { eq: "mandarinas-almenara-castellon.png" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 1920
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-            layout: FULL_WIDTH
-          )
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
         }
       }
       business: file(relativePath: { eq: "seguro-para-empresas.png" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 1920
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-            layout: FULL_WIDTH
-          )
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
         }
       }
       agro: file(relativePath: { eq: "campos-de-naranja-valencia.png" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 1920
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-            layout: FULL_WIDTH
-          )
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
         }
       }
     }
   `)
 
-  const slides = useMemo(
-    () => [
-      { img: getImage(data.oranges), alt: "Agroseguros Valencia - Naranjos" },
-      { img: getImage(data.agro), alt: "Seguro del Campo: Granjeros y Cultivos" },
-      { img: getImage(data.business), alt: "Seguros para Empresas y Negocios" },
-      { img: getImage(data.castle), alt: "Seguros en Almenara - Castillo" },
-    ].filter((s) => !!s.img),
-    [data]
-  )
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 900,
+    fade: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: false,
+    adaptiveHeight: false,
+  }
 
-  const [active, setActive] = useState(0)
-
-  useEffect(() => {
-    if (slides.length <= 1) return
-    const id = setInterval(() => {
-      setActive((i) => (i + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(id)
-  }, [slides.length])
+  const slide = (imgNode, alt) => {
+    const image = getImage(imgNode)
+    if (!image) return null
+    return (
+      <div className="h-full">
+        <GatsbyImage
+          image={image}
+          alt={alt}
+          className="h-full w-full"
+          imgClassName="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      {slides.map((s, i) => (
-        <GatsbyImage
-          key={s.alt}
-          image={s.img}
-          alt={s.alt}
-          loading={i === 0 ? "eager" : "lazy"}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-[1200ms] ${
-            i === active ? "opacity-100" : "opacity-0"
-          }`}
-          imgClassName="w-full h-full object-cover !m-0"
-          style={{ margin: 0 }}
-        />
-      ))}
+    <div className="hero-slick h-full w-full overflow-hidden">
+      <Slider {...settings}>
+        {slide(data.oranges, "Agroseguros Valencia - Naranjos")}
+        {slide(data.agro, "Seguro del Campo")}
+        {slide(data.business, "Seguros para Empresas")}
+        {slide(data.castle, "Seguros en Almenara - Castillo")}
+      </Slider>
     </div>
   )
 }

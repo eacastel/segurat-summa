@@ -15,11 +15,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        'brand-orange': 'rgb(255, 147, 9)', // A deep, professional orange (Orange-600)
-        'brand-orange-hover': '#c2410c', // Darker orange for hover
-        'brand-black': '#111827', // Rich dark grey/black
-        'brand-green': '#15803d', // Forest green (for checkmarks/accents)
-        'whatsapp-green': '#25D366', // Official WhatsApp color
+        'brand-orange': 'rgb(255, 147, 9)',
+        'brand-orange-hover': '#c2410c', 
+        'brand-black': '#111827', 
+        'brand-green': '#15803d', 
+        'whatsapp-green': '#25D366',
         'off-white': '#f9fafb',
       },
       fontFamily: {

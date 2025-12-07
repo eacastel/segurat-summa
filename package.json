@@ -13,7 +13,7 @@
     "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-offline": "^5.24.0",
     "gatsby-plugin-postcss": "^5.24.0",
-    "gatsby-plugin-purgecss": "^6.1.2",
+    "gatsby-plugin-purgecss": "^6.2.1",
     "gatsby-plugin-react-helmet": "^5.24.0",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-source-filesystem": "^4.24.0",
@@ -49,5 +49,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/eacastel/segurat-summa"
+  },
+    "engines": {
+    "node": ">=20 <21"
   }
 }

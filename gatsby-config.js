@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env`,
- })
+})
 
 module.exports = {
   siteMetadata: {
@@ -35,6 +35,18 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,     // set true temporarily to confirm it was stripping slick
+        develop: false,
+        tailwind: true,
+        safelist: [
+          /^slick/,              
+          /^hero-slick$/,        
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
