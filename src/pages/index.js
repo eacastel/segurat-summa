@@ -194,7 +194,6 @@ const IndexPage = () => {
     }
   `)
 
-  const almenaraImg = getImage(data.almenara)
   const checkmarkImg = getImage(data.checkmark)
   const agroImg = getImage(data.agro)
 
@@ -348,7 +347,6 @@ const IndexPage = () => {
 
             </div>
 
-            {/* How we work block */}
             {/* How we work block (highlight section) */}
             <div className="mt-16">
               <div className="rounded-3xl bg-gradient-to-b from-brand-orange/10 to-transparent p-[1px]">
@@ -361,136 +359,212 @@ const IndexPage = () => {
           </div>
         </div>
 
+
         {/* SECTIONS */}
-        <div className="bg-white py-12">
+        <div className="bg-slate-50 py-12">
           <div className="container mx-auto max-w-7xl px-4 space-y-20">
-            {/* 1. SEGUROS PARTICULARES */}
-            <div id="seguros-patrimoniales" className="scroll-mt-32">
-              <div className="flex items-center mb-8">
-                <div className="h-1 w-12 bg-brand-orange mr-4" />
-                <h2 className="text-3xl font-extrabold text-brand-black uppercase">Seguros Particulares</h2>
-              </div>
 
-              <div className="bg-off-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  <div>
-                    <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Patrimonio</h3>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      <li>Autos, motos, tractores</li>
-                      <li>Hogar y alquileres</li>
-                      <li>Comunidades</li>
-                    </ul>
-                  </div>
 
-                  <div>
-                    <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Personal</h3>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      <li>Salud y dental</li>
-                      <li>Vida y accidentes</li>
-                      <li>Decesos</li>
-                    </ul>
-                  </div>
+            {(() => {
+              const SectionShell = ({
+  id,
+  accentLine = "bg-brand-orange",
+  title,
+  children,
+}) => (
+  <section id={id} className="scroll-mt-32">
+    <div className="rounded-3xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden">
+      {/* Header bar */}
+      <div className="px-8 pt-8 md:px-12 md:pt-10 pb-6 border-b border-gray-100">
+        <div className="flex items-center">
+          <div className={`h-1 w-12 mr-4 ${accentLine}`} />
+          <h2 className="text-3xl font-extrabold text-brand-black uppercase">
+            {title}
+          </h2>
+        </div>
+      </div>
 
-                  <div>
-                    <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Ocio</h3>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      <li>Viajes</li>
-                      <li>Caza y pesca</li>
-                      <li>Bicicletas</li>
-                    </ul>
-                  </div>
+      {/* Body */}
+      <div className="px-8 pb-8 md:px-12 md:pb-12 pt-8">
+        {children}
+      </div>
+    </div>
+  </section>
+)
 
-                  <div>
-                    <h3 className="text-brand-orange font-extrabold mb-4 text-lg">¿Interesado?</h3>
-                    <WhatsAppButton text="Pedir Precio" className="w-full text-sm" />
-                  </div>
-                </div>
+              return (
+                <>
+                  {/* 1) SEGUROS PARTICULARES */}
+                  <SectionShell
+                    id="seguros-patrimoniales"
+                    title="Seguros Particulares"
+                    accentLine="bg-brand-orange"
+                    shellBg="bg-off-white"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                      <div>
+                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
+                          Patrimonio
+                        </h3>
+                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                          <li>Autos, motos, tractores</li>
+                          <li>Hogar y alquileres</li>
+                          <li>Comunidades</li>
+                        </ul>
+                      </div>
 
-                {/* Collapsed long list */}
-                <CoverageDetails groups={PARTICULARES} />
-              </div>
-            </div>
+                      <div>
+                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
+                          Personal
+                        </h3>
+                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                          <li>Salud y dental</li>
+                          <li>Vida y accidentes</li>
+                          <li>Decesos</li>
+                        </ul>
+                      </div>
 
-            {/* 2. SEGUROS EMPRESAS */}
-            <div id="seguros-empresariales" className="scroll-mt-32">
-              <div className="flex items-center mb-8">
-                <div className="h-1 w-12 bg-brand-black mr-4" />
-                <h2 className="text-3xl font-extrabold text-brand-black uppercase">Seguros Empresas</h2>
-              </div>
+                      <div>
+                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
+                          Ocio
+                        </h3>
+                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                          <li>Viajes</li>
+                          <li>Caza y pesca</li>
+                          <li>Bicicletas</li>
+                        </ul>
+                      </div>
 
-              <div className="bg-brand-black text-white rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-brand-orange rounded-full opacity-20" />
+                      <div className="flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
+                            ¿Interesado?
+                          </h3>
+                          <p className="text-sm text-gray-600 mb-4">
+                            Te respondemos rápido por WhatsApp.
+                          </p>
+                        </div>
+                        <WhatsAppButton text="Pedir Precio" className="w-full text-sm" />
+                      </div>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-extrabold text-white">Protección Integral para tu Negocio</h3>
-                    <ul className="space-y-3 text-gray-300">
-                      <li className="flex items-center">
-                        <span className="text-brand-orange mr-2">✔</span> Multirriesgo (industria y comercio)
-                      </li>
-                      <li className="flex items-center">
-                        <span className="text-brand-orange mr-2">✔</span> Responsabilidad civil y directivos
-                      </li>
-                      <li className="flex items-center">
-                        <span className="text-brand-orange mr-2">✔</span> Flotas, transportes y construcción
-                      </li>
-                      <li className="flex items-center">
-                        <span className="text-brand-orange mr-2">✔</span> Ciberriesgos y protección de datos
-                      </li>
-                    </ul>
-                  </div>
+                    {/* Details becomes an inset panel, not a separate “card” */}
+                    <CoverageDetails groups={PARTICULARES} />
+                  </SectionShell>
 
-                  <div className="flex flex-col justify-center items-start">
-                    <p className="mb-6 text-gray-300">
-                      Analizamos los riesgos de tu empresa para ofrecerte la cobertura exacta que necesitas.
-                      Ni más, ni menos.
-                    </p>
-                    <WhatsAppButton
-                      text="Consultar Empresas"
-                      className="bg-brand-orange hover:bg-white hover:text-brand-orange"
-                    />
-                  </div>
-                </div>
-              </div>
+                  {/* 2) SEGUROS EMPRESAS */}
+                  <SectionShell
+                    id="seguros-empresariales"
+                    title="Seguros Empresas"
+                    accentLine="bg-brand-black"
+                    shellBg="bg-off-white"
+                  >
+                    {/* Main highlighted card */}
+                    <div className="bg-brand-black text-white rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-brand-orange rounded-full opacity-20" />
 
-              {/* Collapsed long list */}
-              <CoverageDetails groups={EMPRESAS} title="Ver seguros para empresas (detalle)" />
-            </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                        <div className="space-y-6">
+                          <h3 className="text-2xl font-extrabold text-white">
+                            Protección Integral para tu Negocio
+                          </h3>
+                          <ul className="space-y-3 text-gray-300">
+                            <li className="flex items-center">
+                              <span className="text-brand-orange mr-2">✔</span>
+                              Multirriesgo (industria y comercio)
+                            </li>
+                            <li className="flex items-center">
+                              <span className="text-brand-orange mr-2">✔</span>
+                              Responsabilidad civil y directivos
+                            </li>
+                            <li className="flex items-center">
+                              <span className="text-brand-orange mr-2">✔</span>
+                              Flotas, transportes y construcción
+                            </li>
+                            <li className="flex items-center">
+                              <span className="text-brand-orange mr-2">✔</span>
+                              Ciberriesgos y protección de datos
+                            </li>
+                          </ul>
+                        </div>
 
-            {/* 3. AGROSEGUROS */}
-            <div id="agroseguros" className="scroll-mt-32">
-              <div className="flex items-center mb-8">
-                <div className="h-1 w-12 bg-brand-green mr-4" />
-                <h2 className="text-3xl font-extrabold text-brand-black uppercase">Agroseguros</h2>
-              </div>
+                        <div className="flex flex-col justify-center items-start">
+                          <p className="mb-6 text-gray-300">
+                            Analizamos los riesgos de tu empresa para ofrecerte la cobertura exacta que necesitas.
+                            Ni más, ni menos.
+                          </p>
+                          <WhatsAppButton
+                            text="Consultar Empresas"
+                            className="bg-brand-orange hover:bg-white hover:text-brand-orange"
+                          />
+                        </div>
+                      </div>
+                    </div>
 
-              <div className="bg-green-50 rounded-2xl p-8 shadow-sm border border-green-100 flex flex-col md:flex-row gap-8 items-center">
-                <div className="md:w-1/3">
-                  {agroImg && (
-                    <GatsbyImage
-                      image={agroImg}
-                      alt="Agroseguros Valencia"
-                      className="rounded-2xl shadow-md w-full"
-                    />
-                  )}
-                </div>
+                    <div className="mt-8">
+                      <CoverageDetails
+                        groups={EMPRESAS}
+                        title="Ver seguros para empresas (detalle)"
+                      />
+                    </div>
+                  </SectionShell>
 
-                <div className="md:w-2/3">
-                  <h3 className="text-xl font-extrabold text-brand-green mb-3">Especialistas en el Campo</h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    Contratación de módulos de aseguramiento agrícola, peritaje y evaluación de terrenos.
-                    Expertos en coberturas para <strong>cítricos, caqui y aguacate</strong>, y explotaciones
-                    ganaderas. Te acompañamos en las tasaciones de daños.
-                  </p>
-                  <PhoneButton text="Llamar a un experto agrario" className="bg-brand-green hover:bg-green-800" />
-                </div>
-              </div>
+                  {/* 3) AGROSEGUROS */}
+                  <SectionShell
+                    id="agroseguros"
+                    title="Agroseguros"
+                    accentLine="bg-brand-green"
+                    shellBg="bg-off-white"
+                  >
+                    <div className="bg-green-50 rounded-2xl p-8 shadow-sm border border-green-100 flex flex-col md:flex-row gap-8 items-center">
+                      <div className="md:w-1/3">
+                        {agroImg && (
+                          <GatsbyImage
+                            image={agroImg}
+                            alt="Agroseguros Valencia"
+                            className="rounded-2xl shadow-md w-full"
+                          />
+                        )}
+                      </div>
 
-              {/* Collapsed long list */}
-              <CoverageDetails title="Ver detalle de agroseguros" groups={{ Agroseguros: AGRO }} />
-            </div>
+                      <div className="md:w-2/3">
+                        <h3 className="text-xl font-extrabold text-brand-green mb-3">
+                          Especialistas en el Campo
+                        </h3>
+                        <p className="text-gray-700 mb-6 leading-relaxed">
+                          Contratación de módulos de aseguramiento agrícola, peritaje y evaluación de terrenos.
+                          Expertos en coberturas para <strong>cítricos, caqui y aguacate</strong>, y explotaciones
+                          ganaderas. Te acompañamos en las tasaciones de daños.
+                        </p>
+
+                        {/* Agro: WhatsApp primary + Phone secondary */}
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <WhatsAppButton
+                            text="Consultar Agro por WhatsApp"
+                            className="w-full sm:w-auto"
+                          />
+                          <PhoneButton
+                            text="Llamar"
+                            className="w-full sm:w-auto bg-brand-green hover:bg-green-800"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8">
+                      <CoverageDetails
+                        title="Ver detalle de agroseguros"
+                        groups={{ Agroseguros: AGRO }}
+                      />
+                    </div>
+                  </SectionShell>
+                </>
+              )
+            })()}
           </div>
         </div>
+
+
 
         {/* FORM */}
         <div id="contacto" className="container mx-auto max-w-7xl px-4 mb-20 scroll-mt-32">
