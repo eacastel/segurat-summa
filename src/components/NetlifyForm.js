@@ -18,11 +18,32 @@ export default function NetlifyForm() {
     const form = e.target
     const formData = new FormData(form)
 
+    // Basic sanity checks (browser required covers most, this helps UX)
+    const email = String(formData.get("email") || "").trim()
+    const phone = String(formData.get("phone") || "").trim()
+
+    if (!phone) {
+      setError("Por favor, añade un teléfono.")
+      setLoading(false)
+      return
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Por favor, añade un email válido.")
+      setLoading(false)
+      return
+    }
+
     try {
+      const payload = Object.fromEntries(formData.entries())
+
+      // Make sure Netlify sees it as the right form name
+      payload["form-name"] = "contacto-segurat"
+
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(Object.fromEntries(formData)),
+        body: encode(payload),
       })
 
       if (!res.ok) throw new Error("Bad response")
@@ -39,7 +60,6 @@ export default function NetlifyForm() {
 
   return (
     <section className="bg-white py-12 px-6 md:px-12 rounded-2xl shadow-xl border border-gray-100 my-12 max-w-5xl mx-auto relative overflow-hidden">
-      {/* Decorative Top Line matching the Hero Card */}
       <div className="absolute top-0 left-0 w-full h-2 bg-brand-orange"></div>
 
       <div className="text-center mb-10">
@@ -61,7 +81,6 @@ export default function NetlifyForm() {
       >
         <input type="hidden" name="form-name" value="contacto-segurat" />
 
-        {/* honeypot */}
         <p className="hidden">
           <label>
             Don’t fill this out: <input name="bot-field" />
@@ -86,8 +105,26 @@ export default function NetlifyForm() {
           />
         </div>
 
-        {/* Phone Input */}
+        {/* Email Input (NEW, required) */}
         <div className="flex flex-col">
+          <label
+            htmlFor="email"
+            className="mb-2 font-bold text-sm text-brand-black uppercase tracking-wide"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ej: nombre@dominio.com"
+            className="p-4 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200"
+            required
+          />
+        </div>
+
+        {/* Phone Input */}
+        <div className="flex flex-col md:col-span-2">
           <label
             htmlFor="phone"
             className="mb-2 font-bold text-sm text-brand-black uppercase tracking-wide"
@@ -126,7 +163,6 @@ export default function NetlifyForm() {
               <option value="agrario">Agroseguros / Campo</option>
             </select>
 
-            {/* Custom Arrow Icon */}
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
               <svg
                 className="fill-current h-4 w-4"
@@ -177,15 +213,10 @@ export default function NetlifyForm() {
       {/* SUCCESS MODAL */}
       {sent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setSent(false)}
-          />
+          <div className="absolute inset-0 bg-black/50" onClick={() => setSent(false)} />
           <div className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl border border-gray-100 p-8">
             <div className="h-2 w-full bg-brand-orange rounded-full mb-6" />
-            <h3 className="text-2xl font-extrabold text-brand-black uppercase">
-              ¡Listo!
-            </h3>
+            <h3 className="text-2xl font-extrabold text-brand-black uppercase">¡Listo!</h3>
             <p className="mt-3 text-gray-700">
               Hemos recibido tu solicitud. Te contactaremos lo antes posible.
             </p>
