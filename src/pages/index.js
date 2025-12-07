@@ -95,23 +95,59 @@ const quickLinks = [
 /** -----------------------------
  *  Small UI helpers (drop-in)
  *  ----------------------------- */
-function CoverageDetails({ title = "Ver coberturas incluidas", groups }) {
+function CoverageDetails({
+  title = "Ver coberturas incluidas",
+  groups,
+  variant = "light",
+}) {
+  const styles =
+    variant === "dark"
+      ? {
+          wrap: "border-white/15 bg-white/5 backdrop-blur-sm",
+          summaryRow: "bg-white/5 border-b border-white/10",
+          body: "bg-transparent",
+          summary: "text-white",
+          text: "text-gray-200",
+          pill: "text-brand-orange",
+          dot: "bg-brand-orange",
+        }
+      : variant === "green"
+      ? {
+          wrap: "border-brand-green/25 bg-brand-green/10",
+          summaryRow: "bg-brand-green/10 border-b border-brand-green/15",
+          body: "bg-transparent",
+          summary: "text-brand-green",
+          text: "text-gray-700",
+          pill: "text-brand-green",
+          dot: "bg-brand-green",
+        }
+      : {
+          // light variant (for Particulares): “warm glass”, not pure white
+          wrap: "border-brand-orange/60 bg-white/60 backdrop-blur-sm",
+          summaryRow: "bg-brand-orange/5 border-b border-brand-orange/15",
+          body: "bg-transparent",
+          summary: "text-brand-black",
+          text: "text-gray-700",
+          pill: "text-brand-orange",
+          dot: "bg-brand-orange",
+        }
+
   return (
-    <details className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-      <summary className="cursor-pointer select-none text-sm md:text-base font-extrabold text-brand-black">
+    <details className={`mt-8 rounded-2xl overflow-hidden border ${styles.wrap}`}>
+      <summary
+        className={`cursor-pointer select-none px-6 py-4 text-sm md:text-base font-extrabold ${styles.summary} ${styles.summaryRow}`}
+      >
         {title}
       </summary>
 
-      <div className="mt-6 grid gap-8 md:grid-cols-2">
+      <div className={`px-6 pb-7 pt-5 grid gap-8 md:grid-cols-2 ${styles.body}`}>
         {Object.entries(groups).map(([groupTitle, items]) => (
           <div key={groupTitle}>
-            <p className="text-sm font-extrabold text-brand-orange mb-3">
-              {groupTitle}
-            </p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <p className={`text-sm font-extrabold mb-3 ${styles.pill}`}>{groupTitle}</p>
+            <ul className={`space-y-2 text-sm ${styles.text}`}>
               {items.map((x) => (
                 <li key={x} className="flex gap-2">
-                  <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-brand-orange" />
+                  <span className={`mt-[7px] h-1.5 w-1.5 rounded-full ${styles.dot}`} />
                   <span>{x}</span>
                 </li>
               ))}
@@ -122,6 +158,7 @@ function CoverageDetails({ title = "Ver coberturas incluidas", groups }) {
     </details>
   )
 }
+
 
 function HowWeWork() {
   const steps = [
@@ -367,30 +404,30 @@ const IndexPage = () => {
 
             {(() => {
               const SectionShell = ({
-  id,
-  accentLine = "bg-brand-orange",
-  title,
-  children,
-}) => (
-  <section id={id} className="scroll-mt-32">
-    <div className="rounded-3xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden">
-      {/* Header bar */}
-      <div className="px-8 pt-8 md:px-12 md:pt-10 pb-6 border-b border-gray-100">
-        <div className="flex items-center">
-          <div className={`h-1 w-12 mr-4 ${accentLine}`} />
-          <h2 className="text-3xl font-extrabold text-brand-black uppercase">
-            {title}
-          </h2>
-        </div>
-      </div>
+                id,
+                accentLine = "bg-brand-orange",
+                title,
+                children,
+              }) => (
+                <section id={id} className="scroll-mt-32">
+                  <div className="rounded-3xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden">
+                    {/* Header bar */}
+                    <div className="px-8 pt-8 md:px-12 md:pt-10 pb-6 border-b border-gray-100">
+                      <div className="flex items-center">
+                        <div className={`h-1 w-12 mr-4 ${accentLine}`} />
+                        <h2 className="text-3xl font-extrabold text-brand-black uppercase">
+                          {title}
+                        </h2>
+                      </div>
+                    </div>
 
-      {/* Body */}
-      <div className="px-8 pb-8 md:px-12 md:pb-12 pt-8">
-        {children}
-      </div>
-    </div>
-  </section>
-)
+                    {/* Body */}
+                    <div className="px-8 pb-8 md:px-12 md:pb-12 pt-8">
+                      {children}
+                    </div>
+                  </div>
+                </section>
+              )
 
               return (
                 <>
@@ -401,56 +438,53 @@ const IndexPage = () => {
                     accentLine="bg-brand-orange"
                     shellBg="bg-off-white"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                      <div>
-                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
-                          Patrimonio
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
-                          <li>Autos, motos, tractores</li>
-                          <li>Hogar y alquileres</li>
-                          <li>Comunidades</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
-                          Personal
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
-                          <li>Salud y dental</li>
-                          <li>Vida y accidentes</li>
-                          <li>Decesos</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
-                          Ocio
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
-                          <li>Viajes</li>
-                          <li>Caza y pesca</li>
-                          <li>Bicicletas</li>
-                        </ul>
-                      </div>
-
-                      <div className="flex flex-col justify-between">
+                    {/* CARD */}
+                    <div className="bg-brand-orange/10 rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+                      {/* 4-column grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
-                          <h3 className="text-brand-orange font-extrabold mb-4 text-lg">
-                            ¿Interesado?
-                          </h3>
-                          <p className="text-sm text-gray-600 mb-4">
-                            Te respondemos rápido por WhatsApp.
-                          </p>
+                          <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Patrimonio</h3>
+                          <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Autos, motos, tractores</li>
+                            <li>Hogar y alquileres</li>
+                            <li>Comunidades</li>
+                          </ul>
                         </div>
-                        <WhatsAppButton text="Pedir Precio" className="w-full text-sm" />
+
+                        <div>
+                          <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Personal</h3>
+                          <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Salud y dental</li>
+                            <li>Vida y accidentes</li>
+                            <li>Decesos</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h3 className="text-brand-orange font-extrabold mb-4 text-lg">Ocio</h3>
+                          <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Viajes</li>
+                            <li>Caza y pesca</li>
+                            <li>Bicicletas</li>
+                          </ul>
+                        </div>
+
+                        <div className="flex flex-col justify-between">
+                          <div>
+                            <h3 className="text-brand-orange font-extrabold mb-4 text-lg">¿Interesado?</h3>
+                            <p className="text-sm text-gray-600 mb-4">Te respondemos rápido por WhatsApp.</p>
+                          </div>
+                          <WhatsAppButton text="Pedir Precio" className="w-full text-sm" />
+                        </div>
+                      </div>
+
+                      {/* FULL-WIDTH ROW for details */}
+                      <div className="mt-8">
+                        <CoverageDetails groups={PARTICULARES} />
                       </div>
                     </div>
-
-                    {/* Details becomes an inset panel, not a separate “card” */}
-                    <CoverageDetails groups={PARTICULARES} />
                   </SectionShell>
+
 
                   {/* 2) SEGUROS EMPRESAS */}
                   <SectionShell
@@ -460,30 +494,25 @@ const IndexPage = () => {
                     shellBg="bg-off-white"
                   >
                     {/* Main highlighted card */}
-                    <div className="bg-brand-black text-white rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+
+                    <div className="bg-brand-black text-white rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden ">
                       <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-brand-orange rounded-full opacity-20" />
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
                         <div className="space-y-6">
-                          <h3 className="text-2xl font-extrabold text-white">
-                            Protección Integral para tu Negocio
-                          </h3>
+                          <h3 className="text-2xl font-extrabold text-white">Protección Integral para tu Negocio</h3>
                           <ul className="space-y-3 text-gray-300">
                             <li className="flex items-center">
-                              <span className="text-brand-orange mr-2">✔</span>
-                              Multirriesgo (industria y comercio)
+                              <span className="text-brand-orange mr-2">✔</span> Multirriesgo (industria y comercio)
                             </li>
                             <li className="flex items-center">
-                              <span className="text-brand-orange mr-2">✔</span>
-                              Responsabilidad civil y directivos
+                              <span className="text-brand-orange mr-2">✔</span> Responsabilidad civil y directivos
                             </li>
                             <li className="flex items-center">
-                              <span className="text-brand-orange mr-2">✔</span>
-                              Flotas, transportes y construcción
+                              <span className="text-brand-orange mr-2">✔</span> Flotas, transportes y construcción
                             </li>
                             <li className="flex items-center">
-                              <span className="text-brand-orange mr-2">✔</span>
-                              Ciberriesgos y protección de datos
+                              <span className="text-brand-orange mr-2">✔</span> Ciberriesgos y protección de datos
                             </li>
                           </ul>
                         </div>
@@ -499,14 +528,15 @@ const IndexPage = () => {
                           />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="mt-8">
+                      {/* Accordion INSIDE the card */}
                       <CoverageDetails
                         groups={EMPRESAS}
                         title="Ver seguros para empresas (detalle)"
+                        variant="dark"
                       />
                     </div>
+
                   </SectionShell>
 
                   {/* 3) AGROSEGUROS */}
@@ -516,45 +546,34 @@ const IndexPage = () => {
                     accentLine="bg-brand-green"
                     shellBg="bg-off-white"
                   >
-                    <div className="bg-green-50 rounded-2xl p-8 shadow-sm border border-green-100 flex flex-col md:flex-row gap-8 items-center">
-                      <div className="md:w-1/3">
-                        {agroImg && (
-                          <GatsbyImage
-                            image={agroImg}
-                            alt="Agroseguros Valencia"
-                            className="rounded-2xl shadow-md w-full"
-                          />
-                        )}
-                      </div>
+                    <div className="bg-brand-green/10 rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hiddenborder border-green-100">
+                      <div className="flex flex-col md:flex-row gap-8 items-center">
+                        <div className="md:w-1/3">
+                          {agroImg && (
+                            <GatsbyImage
+                              image={agroImg}
+                              alt="Agroseguros Valencia"
+                              className="rounded-2xl shadow-md w-full"
+                            />
+                          )}
+                        </div>
 
-                      <div className="md:w-2/3">
-                        <h3 className="text-xl font-extrabold text-brand-green mb-3">
-                          Especialistas en el Campo
-                        </h3>
-                        <p className="text-gray-700 mb-6 leading-relaxed">
-                          Contratación de módulos de aseguramiento agrícola, peritaje y evaluación de terrenos.
-                          Expertos en coberturas para <strong>cítricos, caqui y aguacate</strong>, y explotaciones
-                          ganaderas. Te acompañamos en las tasaciones de daños.
-                        </p>
-
-                        {/* Agro: WhatsApp primary + Phone secondary */}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <WhatsAppButton
-                            text="Consultar Agro por WhatsApp"
-                            className="w-full sm:w-auto"
-                          />
-                          <PhoneButton
-                            text="Llamar"
-                            className="w-full sm:w-auto bg-brand-green hover:bg-green-800"
-                          />
+                        <div className="md:w-2/3">
+                          <h3 className="text-xl font-extrabold text-brand-green mb-3">Especialistas en el Campo</h3>
+                          <p className="text-gray-700 mb-6 leading-relaxed">
+                            Contratación de módulos de aseguramiento agrícola, peritaje y evaluación de terrenos.
+                            Expertos en coberturas para <strong>cítricos, caqui y aguacate</strong>, y explotaciones
+                            ganaderas. Te acompañamos en las tasaciones de daños.
+                          </p>
+                          <PhoneButton text="Llamar a un experto agrario" className="bg-brand-green hover:bg-green-800" />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="mt-8">
+                      {/* Accordion INSIDE the card */}
                       <CoverageDetails
                         title="Ver detalle de agroseguros"
                         groups={{ Agroseguros: AGRO }}
+                        variant="green"
                       />
                     </div>
                   </SectionShell>
