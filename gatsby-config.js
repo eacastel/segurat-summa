@@ -13,13 +13,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        googleAnalytics: {
-          trackingId: 'G-Q27WRR1LJK', // Your Google Analytics tracking ID
-          cookieName: 'gatsby-gdpr-google-analytics', // Custom cookie name
-          anonymize: true, // GDPR settings
-          allowAdFeatures: false
-        },
-        // Define the environments where the tracking should be active
         environments: ['production'], // Only enable tracking in production
       },
     },
@@ -72,13 +65,22 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")]
       }
     },
+        {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GATSBY_GOOGLE_GTAG_ID, 
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+        enableWebVitalsTracking: true,
+      },
+    },
+        `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
