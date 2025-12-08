@@ -96,7 +96,7 @@ const quickLinks = [
  *  Small UI helpers (drop-in)
  *  ----------------------------- */
 function CoverageDetails({
-  title = "Ver coberturas incluidas",
+  title = "Ver más coberturas particulares (detalles)",
   groups,
   variant = "light",
 }) {

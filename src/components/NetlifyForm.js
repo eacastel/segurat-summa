@@ -64,7 +64,7 @@ export default function NetlifyForm() {
 
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-brand-black uppercase mb-4">
-          ¿Necesitas presupuesto?
+          ¿Necesitas un presupuesto?
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Déjanos tus datos y te contactamos lo antes posible para ofrecerte la mejor opción.
@@ -99,7 +99,7 @@ export default function NetlifyForm() {
             type="text"
             id="name"
             name="name"
-            placeholder="Ej: Juan Pérez"
+            placeholder="Ej: Jon Smith"
             className="p-4 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200"
             required
           />
@@ -150,11 +150,11 @@ export default function NetlifyForm() {
             Estoy interesado en...
           </label>
           <div className="relative">
-            <select
-              id="interest"
-              name="interest"
-              className="w-full p-4 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200 appearance-none"
-            >
+<select
+  id="interest"
+  name="interest"
+  className="w-full p-4 pr-12 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200 !appearance-none !bg-none [-webkit-appearance:none!important] [-moz-appearance:none!important] [background-image:none!important]"
+>
               <option value="general">Información General</option>
               <option value="autos">Seguro de Auto/Vehículos</option>
               <option value="hogar">Seguro de Hogar</option>
@@ -163,15 +163,17 @@ export default function NetlifyForm() {
               <option value="agrario">Agroseguros / Campo</option>
             </select>
 
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+  <svg
+    className="h-6 w-6"  // bigger arrow
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+  </svg>
+</div>
           </div>
         </div>
 
@@ -213,7 +215,12 @@ export default function NetlifyForm() {
       {/* SUCCESS MODAL */}
       {sent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setSent(false)} />
+          <button
+            type="button"
+            aria-label="Cerrar mensaje"
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setSent(false)}
+          />
           <div className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl border border-gray-100 p-8">
             <div className="h-2 w-full bg-brand-orange rounded-full mb-6" />
             <h3 className="text-2xl font-extrabold text-brand-black uppercase">¡Listo!</h3>
