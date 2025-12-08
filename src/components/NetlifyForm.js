@@ -153,7 +153,7 @@ export default function NetlifyForm() {
 <select
   id="interest"
   name="interest"
-  className="w-full p-4 pr-12 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200 !appearance-none !bg-none [-webkit-appearance:none!important] [-moz-appearance:none!important] [background-image:none!important]"
+  className="w-full p-4 pr-12 rounded-lg bg-gray-50 border border-gray-300 text-brand-black focus:border-brand-orange focus:ring-brand-orange focus:bg-white transition duration-200 !appearance-none !bg-none [-webkit-appearance:none!important] [-moz-appearance:none!important]"
 >
               <option value="general">Información General</option>
               <option value="autos">Seguro de Auto/Vehículos</option>
