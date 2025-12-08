@@ -72,3 +72,16 @@ yarn-error.log
 # Local Netlify folder
 .netlify
 deno.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.venv/
+venv/
+env/
+
+
+# If you keep a venv inside python-images
+python-images/venv/
