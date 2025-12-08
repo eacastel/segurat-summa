@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import horchataLogo from "../images/horchata-logo.svg"
+
 
 const Footer = () => {
   return (
@@ -106,11 +106,11 @@ const Footer = () => {
               className="font-bold text-gray-400 hover:text-neon-cyan transition-colors duration-300 flex items-center gap-1 group"
               aria-label="Visitar Horchata Labs, desarrolladores del sitio"
             >
-              <img
-                src={horchataLogo}
-                alt="Horchata Labs Logo"
-                className="h-4 w-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 -mt-[4px]"
-              />
+<img
+  src="/horchata-logo.svg"
+  alt="Horchata Labs Logo"
+  className="h-4 w-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 -mt-[4px]"
+/>
               Horchata Labs
             </a>
           </div>
