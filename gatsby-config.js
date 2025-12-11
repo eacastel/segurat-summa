@@ -13,6 +13,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-netlify",
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // Array of paths to exclude
+        excludes: ["/aviso-legal", "/politica-de-privacidad", "/cookies"],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -24,7 +31,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-purgecss`,
-      options: {  
+      options: {
         develop: false,
         tailwind: true,
         safelist: [
@@ -62,16 +69,16 @@ module.exports = {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")]
       }
     },
-        {
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: process.env.GATSBY_GOOGLE_GTAG_ID, 
+        id: process.env.GATSBY_GOOGLE_GTAG_ID,
         includeInDevelopment: false,
         defaultDataLayer: { platform: "gatsby" },
         enableWebVitalsTracking: true,
       },
     },
-        `gatsby-plugin-remove-serviceworker`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
