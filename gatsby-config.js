@@ -12,13 +12,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-netlify",
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        // Array of paths to exclude
-        excludes: ["/aviso-legal", "/politica-de-privacidad", "/cookies"],
-      },
-    },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
