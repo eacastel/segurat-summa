@@ -11,8 +11,16 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-netlify",
-    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: '/',
+        createLinkInHead: true,
+        entryLimit: 5000,
+        resolveSiteUrl: () => 'https://segurat-summa.es',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

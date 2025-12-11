@@ -1,9 +1,9 @@
 {
   "name": "ai-template-01-segurat-summa-insurance",
   "private": true,
-  "description": "Build for Segurat Summa Insurance with GDRP compliance one page web application. Based on Default Gatsby Starter",
+  "description": "Build for Segurat Summa Insurance with GDRP compliance one page web application.",
   "version": "0.1.0",
-  "author": "Emilio Castellanos <emilio@avantiinteractive.com>",
+  "author": "Horchata Labs <hello@horchatalabs.com>",
   "dependencies": {
     "autoprefixer": "^10.4.7",
     "gatsby": "^4.25.8",
